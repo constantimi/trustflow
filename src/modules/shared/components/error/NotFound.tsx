@@ -1,17 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import Layout from '../../layout/layout/Layout';
-import Content from '../../layout/content/Content';
 import { useAppSelector } from '../../store/hooks';
 import { getTheme } from '../../store/app/theme';
 import { useSharedTranslation } from '../../hooks/useSharedTranslation';
-import NotFoundIcon from '../icons/NotFoundIcon';
 import { Theme } from '../../layout/theme';
 import { SessionStore } from '../../utils/session';
+import Layout from '../../layout/layout/Layout';
+import Content from '../../layout/content/Content';
+import NotFoundIcon from '../icons/NotFoundIcon';
 
 const NotFound = () => {
-  // =====================================================================
-  // states
   const navigate = useNavigate();
 
   const theme = useAppSelector(getTheme);
@@ -19,8 +17,6 @@ const NotFound = () => {
 
   const { t } = useSharedTranslation();
 
-  // =====================================================================
-  // handle
   const handleReturnToDashboard = () => {
     navigate(`/${workspace}`);
   };

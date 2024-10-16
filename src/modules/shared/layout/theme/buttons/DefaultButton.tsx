@@ -31,9 +31,6 @@ const DefaultButton = ({
   buttonRef,
   ...props
 }: Props) => {
-  // =====================================================================
-  // states
-
   const theme = useAppSelector(getTheme);
   const [hovered, setHovered] = useState(false);
 

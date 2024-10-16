@@ -23,9 +23,6 @@ const PrimaryButton = ({
   ref,
   ...props
 }: Props) => {
-  // =====================================================================
-  // states
-
   const theme = useAppSelector(getTheme);
   const [hovered, setHovered] = useState(false);
 

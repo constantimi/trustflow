@@ -19,9 +19,6 @@ const PrimaryText = ({
   buttonState,
   dataTestId,
 }: Props) => {
-  // =====================================================================
-  // states
-
   const theme = useAppSelector(getTheme);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -36,9 +33,6 @@ const PrimaryText = ({
   const textButtonStyle = {
     color: disable ? theme.text.disabled : theme.text.buttonHover,
   };
-
-  // =====================================================================
-  // handle
 
   const handleMouseEnter = () => {
     setIsHovered(true);

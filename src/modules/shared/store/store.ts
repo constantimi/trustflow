@@ -16,7 +16,6 @@ export const configureAppStore = () =>
       }).concat(),
   });
 
-// managing a store instance to allow for resetting
 class StoreManager {
   private storeInstance: AppStore;
 
@@ -34,8 +33,5 @@ class StoreManager {
 }
 
 export const storeManager = new StoreManager();
-
-// =========================================================
-// types
 
 export type AppStore = ReturnType<typeof configureAppStore>;

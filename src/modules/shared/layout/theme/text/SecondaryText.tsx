@@ -15,9 +15,6 @@ const SecondaryText = ({
   hoverState,
   dataTestId,
 }: Props) => {
-  // =====================================================================
-  // states
-
   const theme = useAppSelector(getTheme);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -25,9 +22,6 @@ const SecondaryText = ({
     color:
       isHovered && hoverState ? theme.text.buttonHover : theme.text.secondary,
   };
-
-  // =====================================================================
-  // handle
 
   const handleMouseEnter = () => {
     setIsHovered(true);

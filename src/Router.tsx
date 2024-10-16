@@ -1,9 +1,20 @@
-import React from 'react';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Loading } from './modules/shared';
+
+const Register = lazy(() =>
+  import('./modules/data').then((module) => ({
+    default: module.Register,
+  }))
+);
 
 const Router = () => (
   <BrowserRouter>
-    <Routes>{/* register */}</Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Suspense>
   </BrowserRouter>
 );
 

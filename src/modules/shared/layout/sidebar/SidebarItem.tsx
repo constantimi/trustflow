@@ -24,9 +24,6 @@ const SidebarItem = ({
   className,
   buttonClassName,
 }: Props) => {
-  // =====================================================================
-  // states
-
   const [isHovered, setIsHovered] = useState(false);
   const currentRoute = useLocation();
 

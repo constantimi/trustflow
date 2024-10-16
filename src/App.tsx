@@ -3,10 +3,11 @@ import { Provider } from 'react-redux';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import { storeManager } from './modules/shared/store/store';
-import 'react-toastify/dist/ReactToastify.css';
+import { NotSupported } from './modules/shared';
 import config from './modules/shared/config/config';
 import Router from './Router';
-import NotSupported from './modules/shared/components/error/NotSupported';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const { appName, appIcon } = config;

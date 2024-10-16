@@ -42,18 +42,12 @@ const SecondaryInput = forwardRef<HTMLInputElement, Props>(
     },
     ref
   ) => {
-    // =====================================================================
-    // states
-
     const theme = useAppSelector(getTheme);
 
     const inputClassNames = cn(
       'flex items-center justify-center rounded px-4 my-1 flex-shrink-0',
       className
     );
-
-    // =====================================================================
-    // handle
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       if (!clearOnFocus) return;
