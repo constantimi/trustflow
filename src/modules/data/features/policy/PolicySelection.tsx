@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../shared/store/hooks';
 import { selectPolicy } from '../../store/policy/policy-slice';
+import { Step, StepNames } from '../../types/step';
+
+export const createPolicySelectionStep: () => Step = () => ({
+  title: StepNames.POLICY_SELECTION,
+});
 
 interface Props {
   nextStep: () => void;

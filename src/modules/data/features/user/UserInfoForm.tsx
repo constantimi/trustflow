@@ -3,6 +3,11 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useAppDispatch } from '../../../shared/store/hooks';
 import { updateUserInfo } from '../../store/user/user-slice';
 import { validateUserInfo } from '../../utils/validation';
+import { Step, StepNames } from '../../types/step';
+
+export const createUserInformationStep: () => Step = () => ({
+  title: StepNames.USER_INFO_FORM,
+});
 
 interface Props {
   nextStep: () => void;

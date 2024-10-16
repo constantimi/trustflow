@@ -2,6 +2,11 @@ import React from 'react';
 import { useAppSelector } from '../../../shared/store/hooks';
 import { selectUserState } from '../../store/user/user-slice';
 import { selectPolicyState } from '../../store/policy/policy-slice';
+import { Step, StepNames } from '../../types/step';
+
+export const createSummaryScreenStep: () => Step = () => ({
+  title: StepNames.SUMMARY_SCREEN,
+});
 
 interface Props {
   prevStep: () => void;
