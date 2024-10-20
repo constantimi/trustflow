@@ -5,8 +5,8 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      mobile: { max: '550px' },
-      sm: '551px',
+      mobile: { max: '650px' },
+      sm: '651px',
       md: '912px',
       lg: '1440px',
     },

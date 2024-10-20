@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import policyReducer from './policy/policy-slice';
 import userReducer from './user/user-slice';
 
-const registerReducers = combineReducers({
-  policy: policyReducer,
+const dataReducers = combineReducers({
   user: userReducer,
 });
 
-export default registerReducers;
+export default dataReducers;

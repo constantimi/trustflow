@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../shared/store';
 import isEmailValid from '../../../shared/helpers/validateEmail';
 import isDobValid from '../../../shared/helpers/validateDob';
@@ -15,6 +15,7 @@ interface UserState {
     email: Field;
     dob: Field;
   };
+  policy: Field;
 }
 
 const initialState: UserState = {
@@ -24,6 +25,7 @@ const initialState: UserState = {
     email: { value: '', error: '' },
     dob: { value: '', error: '' },
   },
+  policy: { value: '', error: '' },
 };
 
 const userSlice = createSlice({
@@ -32,6 +34,7 @@ const userSlice = createSlice({
   reducers: {
     setInitialState: (state) => {
       state.form = { ...initialState.form };
+      state.policy = { ...initialState.policy };
     },
     setFirstName: (state, action: PayloadAction<string>) => {
       state.form.firstName.value = action.payload;
@@ -84,6 +87,17 @@ const userSlice = createSlice({
         state.form.dob.error = '';
       }
     },
+    setPolicy: (state, action: PayloadAction<string>) => {
+      state.policy.value = action.payload;
+      state.policy.error = '';
+    },
+    validatePolicy: (state) => {
+      if (!state.policy.value) {
+        state.policy.error = 'You must accept the policy.';
+      } else {
+        state.policy.error = '';
+      }
+    },
   },
 });
 
@@ -97,11 +111,12 @@ export const {
   validateEmail,
   setDob,
   validateDob,
+  setPolicy,
+  validatePolicy,
 } = userSlice.actions;
 
 export default userSlice.reducer;
 
-export const getFormState = createSelector(
-  [(state: RootState) => state.data.user.form],
-  (form) => form
-);
+export const getFormState = (state: RootState) => state.data.user.form;
+
+export const getPolicyState = (state: RootState) => state.data.user.policy;

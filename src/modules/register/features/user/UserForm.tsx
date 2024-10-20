@@ -72,7 +72,7 @@ const UserForm = ({ nextStep }: Props) => {
           <Field
             label="First Name"
             type="text"
-            className="w-[16rem]"
+            className="w-[18.5rem]"
             placeholder="First Name"
             value={form.firstName.value}
             onChange={(e) => dispatch(setFirstName(e.target.value))}
@@ -83,7 +83,7 @@ const UserForm = ({ nextStep }: Props) => {
           <Field
             label="Last Name"
             type="text"
-            className="w-[16rem]"
+            className="w-[18.5rem]"
             placeholder="Last Name"
             value={form.lastName.value}
             onChange={(e) => dispatch(setLastName(e.target.value))}
@@ -96,7 +96,7 @@ const UserForm = ({ nextStep }: Props) => {
           <Field
             label="Email"
             type="email"
-            className="w-[16rem]"
+            className="w-[18.5rem]"
             placeholder="Email"
             value={form.email.value}
             onChange={(e) => dispatch(setEmail(e.target.value))}
@@ -107,7 +107,7 @@ const UserForm = ({ nextStep }: Props) => {
           <DatepickerComponent
             label="Date of birth"
             placeholder="Date of birth"
-            className="h-[2.5rem] w-[16rem] cursor-pointer rounded-md"
+            className="h-[2.5rem] w-[18.5rem] cursor-pointer rounded-md"
             onChange={handleDateChange}
             selectedDate={form.dob.value}
             error={form.dob.error}
@@ -115,7 +115,7 @@ const UserForm = ({ nextStep }: Props) => {
         </div>
       </div>
 
-      <div className="flex w-full flex-row justify-end px-6">
+      <div className="flex w-full flex-row justify-end">
         <Theme.PrimaryButton
           onClick={handleSubmit}
           className="h-[2rem] w-[6rem]"

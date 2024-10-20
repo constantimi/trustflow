@@ -5,8 +5,8 @@ export type StepList = {
 
 export enum StepNames {
   USER_FORM = 'General Information',
-  POLICY_SELECTION = 'Policy Selection',
-  SUMMARY_SCREEN = 'Application Review',
+  POLICY_SELECTION = 'Insurance Policy',
+  SUMMARY = 'Application Review',
 }
 
 export type Step = {

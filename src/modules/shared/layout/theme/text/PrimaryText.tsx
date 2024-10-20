@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useAppSelector } from '../../../store/hooks';
 import { getTheme } from '../../../store/app/theme';
 
@@ -14,7 +15,7 @@ const PrimaryText = ({ children, className, disable, dataTestId }: Props) => {
 
   return (
     <div
-      className={className}
+      className={cn('text-base', className)}
       data-testid={dataTestId}
       style={{ color: disable ? theme.text.disabled : theme.text.primary }}
     >

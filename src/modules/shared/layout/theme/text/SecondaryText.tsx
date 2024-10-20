@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useAppSelector } from '../../../store/hooks';
 import { getTheme } from '../../../store/app/theme';
 
@@ -13,7 +14,7 @@ const SecondaryText = ({ children, className, dataTestId }: Props) => {
 
   return (
     <div
-      className={className}
+      className={cn('text-base', className)}
       style={{
         color: theme.text.secondary,
       }}

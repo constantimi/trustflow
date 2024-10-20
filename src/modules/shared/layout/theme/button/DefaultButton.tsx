@@ -48,7 +48,10 @@ const DefaultButton = ({
     <button
       ref={ref}
       type="button"
-      className={cn('flex items-center rounded text-base', className)}
+      className={cn(
+        '     flex flex-shrink-0 items-center justify-center rounded text-base',
+        className
+      )}
       style={{
         color: disable ? theme.text.disabled : theme.text.primary,
         borderColor: disable
