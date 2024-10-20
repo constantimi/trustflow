@@ -24,7 +24,7 @@ const SidebarItem = ({
   className,
   buttonClassName,
 }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hover, setHover] = useState(false);
   const currentRoute = useLocation();
 
   const handleItemClick = () => {
@@ -43,8 +43,8 @@ const SidebarItem = ({
       buttonClassName={cn('w-full rounded-none relative', buttonClassName)}
       dataTestId={title}
       onClick={handleItemClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       {/* line */}
       <div
@@ -55,8 +55,7 @@ const SidebarItem = ({
             'w-[76%]': !isSidebarOpen && !disable,
           },
           {
-            'bg-zinc-400 bg-opacity-20':
-              currentRoute.pathname === url || isHovered,
+            'bg-zinc-400 bg-opacity-20': currentRoute.pathname === url || hover,
           }
         )}
       />

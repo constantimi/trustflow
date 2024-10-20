@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Loading, NotFound } from './modules/shared';
 
 const Register = lazy(() =>
-  import('./modules/data').then((module) => ({
+  import('./modules/register').then((module) => ({
     default: module.Register,
   }))
 );

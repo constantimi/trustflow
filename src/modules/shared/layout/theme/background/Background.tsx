@@ -1,27 +1,23 @@
 import React from 'react';
+import cn from 'classnames';
 import { useAppSelector } from '../../../store/hooks';
 import { getTheme } from '../../../store/app/theme';
 
 interface Props {
   children: React.ReactNode | React.ReactNode[];
   className?: string;
-  dataTestId?: string;
 }
 
-const SecondaryText = ({ children, className, dataTestId }: Props) => {
+const Background = ({ children, className }: Props) => {
   const theme = useAppSelector(getTheme);
 
   return (
     <div
-      className={className}
-      style={{
-        color: theme.text.secondary,
-      }}
-      data-testid={dataTestId}
+      className={cn('scrollbar h-full w-full overflow-y-auto', className)}
+      style={{ backgroundColor: theme.background.main }}
     >
       {children}
     </div>
   );
 };
-
-export default SecondaryText;
+export default Background;

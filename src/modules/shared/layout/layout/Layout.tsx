@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-type Props = {
+interface Props {
   children: React.ReactNode | React.ReactNode[];
   className?: string;
-};
+}
 
 const Layout = ({ children: possibleChildren, className }: Props) => {
   const children = Array.isArray(possibleChildren)

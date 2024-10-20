@@ -1,5 +1,5 @@
 {
-  "API_URL": "https://test.app.io",
+  "API_URL": "https://test-app.com",
   "appIcon": "/icons/app-icon.svg",
   "appName": "Vite",
   "settings": {
@@ -10,16 +10,13 @@
   "themes": {
     "Light": {
       "background": {
-        "topbar": "#F6F6F6",
-        "activeTab": "#E5E5E7",
-        "sidebar": "#F6F6F6",
         "main": "#FFFFFF"
       },
       "text": {
         "primary": "#263779",
         "secondary": "#B4BAD3",
         "disabled": "#9497A7",
-        "buttonHover": "#FFFFFF"
+        "button": "#FFFFFF"
       },
       "button": {
         "color": "#263779",
@@ -28,7 +25,7 @@
       },
       "input": {
         "primary": "#F6F6F6",
-        "secondary": "#FFFFFF"
+        "default": "#FFFFFF"
       },
       "border": {
         "primary": "#E1E7F2",

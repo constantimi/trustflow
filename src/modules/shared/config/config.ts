@@ -1,23 +1,19 @@
 import { z } from 'zod';
 import dev from './config.development.json';
 import prod from './config.production.json';
-import staging from './config.staging.json';
 import test from './config.test.json';
 
 let rawConfig = {};
 
 switch (window.location.hostname) {
-  case 'production.app.com':
-    rawConfig = prod;
+  case 'development.app':
+    rawConfig = dev;
     break;
-  case 'staging.app.com':
-    rawConfig = staging;
-    break;
-  case 'test.app.com':
+  case 'test.app':
     rawConfig = test;
     break;
-  case 'development.app.com':
-    rawConfig = dev;
+  case 'production.app':
+    rawConfig = prod;
     break;
   default:
     rawConfig = dev;
@@ -39,15 +35,12 @@ const config = z
       z.object({
         background: z.object({
           main: z.string(),
-          sidebar: z.string(),
-          topbar: z.string(),
-          activeTab: z.string(),
         }),
         text: z.object({
           primary: z.string(),
           secondary: z.string(),
           disabled: z.string(),
-          buttonHover: z.string(),
+          button: z.string(),
         }),
         button: z.object({
           color: z.string(),
@@ -56,7 +49,7 @@ const config = z
         }),
         input: z.object({
           primary: z.string(),
-          secondary: z.string(),
+          default: z.string(),
         }),
         border: z.object({
           primary: z.string(),
