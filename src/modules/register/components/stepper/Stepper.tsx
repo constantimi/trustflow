@@ -26,10 +26,10 @@ const Stepper = ({ steps }: Props) => {
           key={nanoid()}
           className="flex flex-row items-center justify-center"
         >
-          <StepItem step={current} isCurrentStep={isCurrentStep} />
-          {current.next && (
+          {current.prev && (
             <StepLine step={current} isCurrentStep={isCurrentStep} />
           )}
+          <StepItem step={current} isCurrentStep={isCurrentStep} />
         </div>
       );
       current = current.next;

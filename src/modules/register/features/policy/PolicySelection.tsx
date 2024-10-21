@@ -1,12 +1,12 @@
 import React from 'react';
-import { Step, StepNames } from '../../types/step';
+import { Step, StepName } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
 import { PolicyTable } from './table/PolicyTable';
 import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
 import { getPolicyState, validatePolicy } from '../../store/user/user-slice';
 
 export const createPolicySelectionStep: () => Step = () => ({
-  title: StepNames.POLICY_SELECTION,
+  title: StepName.POLICY_SELECTION,
 });
 
 interface Props {

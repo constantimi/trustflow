@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
-import { Step, StepNames } from '../../types/step';
+import { Step, StepName } from '../../types/step';
 import Form from '../../components/form/Form';
 import Field from '../../components/form/Field';
 
@@ -22,7 +22,7 @@ import isEmailValid from '../../../shared/helpers/validateEmail';
 import { Theme } from '../../../shared/layout/theme';
 
 export const createUserInformationStep: () => Step = () => ({
-  title: StepNames.USER_FORM,
+  title: StepName.USER_FORM,
 });
 
 interface Props {

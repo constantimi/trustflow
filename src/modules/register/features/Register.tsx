@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Step, StepList, StepNames } from '../types/step';
+import { Step, StepList, StepName } from '../types/step';
 import UserForm, { createUserInformationStep } from './user/UserForm';
 import {
   createPolicySelectionStep,
   PolicySelection,
 } from './policy/PolicySelection';
-import {
-  createSummaryScreenStep,
-  SummaryScreen,
-} from './summary/SummaryScreen';
+import { createSummaryScreenStep, Summary } from './summary/Summary';
 import Stepper from '../components/stepper/Stepper';
 import Content from '../../shared/layout/content/Content';
 import Layout from '../../shared/layout/layout/Layout';
@@ -25,28 +22,16 @@ const Register = () => {
 
     const userStep = createUserInformationStep();
     newStepper = userStep;
-    newStepper = createPolicySelectionStep();
 
-    if (newStepper) {
-      const policyStep = createPolicySelectionStep();
-      policyStep.prev = newStepper;
-      newStepper.next = policyStep;
-    } else {
-      newStepper = createPolicySelectionStep();
-    }
+    const policyStep = createPolicySelectionStep();
+    policyStep.prev = newStepper;
+    newStepper.next = policyStep;
 
     const summaryStep = createSummaryScreenStep();
-    if (newStepper.next) {
-      summaryStep.prev = newStepper.next;
-      newStepper.next.next = summaryStep;
-    } else {
-      summaryStep.prev = newStepper;
-      newStepper.next = summaryStep;
-    }
+    summaryStep.prev = policyStep;
+    policyStep.next = summaryStep;
 
-    if (newStepper) {
-      setStepper({ currentStep: newStepper, chain: newStepper });
-    }
+    setStepper({ currentStep: userStep, chain: userStep });
   }, []);
 
   if (!stepper) {
@@ -59,9 +44,7 @@ const Register = () => {
     if (stepper.currentStep.next) {
       setStepper({ ...stepper, currentStep: stepper.currentStep.next });
     } else {
-      // Submit form
       navigate('/');
-
       setStepper(null);
     }
   };
@@ -69,6 +52,18 @@ const Register = () => {
   const handlePrevStep = () => {
     if (stepper.currentStep.prev) {
       setStepper({ ...stepper, currentStep: stepper.currentStep.prev });
+    }
+  };
+
+  const handleJumpToStep = (stepName: StepName) => {
+    let targetStep = stepper.currentStep as Step | undefined;
+    while (targetStep && targetStep.title !== stepName) {
+      targetStep.completed = false;
+      targetStep = targetStep.prev;
+    }
+
+    if (targetStep) {
+      setStepper({ ...stepper, currentStep: targetStep });
     }
   };
 
@@ -88,21 +83,22 @@ const Register = () => {
           <div className="flex w-[30rem] flex-col items-center justify-center md:w-[48rem]">
             <Stepper steps={stepper} />
 
-            {stepper.currentStep.title === StepNames.USER_FORM && (
+            {stepper.currentStep.title === StepName.USER_FORM && (
               <UserForm nextStep={handleNextStep} />
             )}
 
-            {stepper.currentStep.title === StepNames.POLICY_SELECTION && (
+            {stepper.currentStep.title === StepName.POLICY_SELECTION && (
               <PolicySelection
                 prevStep={handlePrevStep}
                 nextStep={handleNextStep}
               />
             )}
 
-            {stepper.currentStep.title === StepNames.SUMMARY && (
-              <SummaryScreen
+            {stepper.currentStep.title === StepName.SUMMARY && (
+              <Summary
                 prevStep={handlePrevStep}
                 nextStep={handleNextStep}
+                jumpToStep={handleJumpToStep}
               />
             )}
           </div>
