@@ -16,7 +16,7 @@ const StepLine = ({ step, isCurrentStep }: StepLineProps) => {
 
   return (
     <div
-      className="mb-auto mt-4 flex h-[1px] w-[2.5rem] md:w-[3.5rem]"
+      className="mb-auto mt-4 flex h-[1px] w-[1.5rem] md:w-[5rem]"
       style={{ backgroundColor: lineColor }}
     />
   );

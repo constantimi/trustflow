@@ -15,14 +15,13 @@ const PlaceholderContext = createContext<string | undefined>('Choose a date');
 interface CustomInputProps {
   label?: string;
   value?: string;
-  className?: string;
   error?: string | null;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const CustomInput = React.forwardRef<HTMLButtonElement, CustomInputProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ label, value, error, onClick, className }, _) => {
+  ({ label, value, error, onClick }, _) => {
     const theme = useAppSelector(getTheme);
     const placeholder = useContext(PlaceholderContext);
 
@@ -68,8 +67,8 @@ const CustomInput = React.forwardRef<HTMLButtonElement, CustomInputProps>(
         <Theme.DefaultButton
           onClick={onClick}
           className={cn(
-            'flex flex-shrink-0 items-center justify-center rounded border-[1px] px-4',
-            className
+            'flex flex-shrink-0 items-center justify-center rounded-md',
+            'h-[2.5rem] w-full cursor-pointer border-[1px] px-4'
           )}
           style={{
             backgroundColor: theme.background.main,
@@ -126,7 +125,7 @@ const DatepickerComponent = ({
   }, [selectedDate]);
 
   return (
-    <div className="flex flex-col">
+    <div className={cn('flex w-full flex-col', className)}>
       <PlaceholderContext.Provider value={placeholder}>
         <Datepicker
           dateFormat="dd-MM-yyyy"
@@ -137,9 +136,7 @@ const DatepickerComponent = ({
             }
             setDefaultDate(date);
           }}
-          customInput={
-            <CustomInput label={label} className={className} error={error} />
-          }
+          customInput={<CustomInput label={label} error={error} />}
           calendarClassName="calendar"
           dayClassName={() => 'calendar__day'}
           weekDayClassName={() => 'calendar__weekday'}

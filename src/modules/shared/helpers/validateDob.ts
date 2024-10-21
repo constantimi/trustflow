@@ -7,6 +7,13 @@ const isDobValid = (dob: string): boolean => {
   }
 
   // Additional checks can be added here (e.g., age range)
+  const today = new Date();
+
+  // Check if the date of birth is in the future
+  if (dobDate > today) {
+    return false;
+  }
+
   return true;
 };
 

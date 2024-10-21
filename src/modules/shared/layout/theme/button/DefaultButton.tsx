@@ -49,7 +49,7 @@ const DefaultButton = ({
       ref={ref}
       type="button"
       className={cn(
-        '     flex flex-shrink-0 items-center justify-center rounded text-base',
+        'flex flex-shrink-0 items-center justify-center rounded text-base',
         className
       )}
       style={{

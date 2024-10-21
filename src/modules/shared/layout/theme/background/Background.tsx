@@ -13,7 +13,7 @@ const Background = ({ children, className }: Props) => {
 
   return (
     <div
-      className={cn('scrollbar h-full w-full overflow-y-auto', className)}
+      className={cn('scrollbar h-full w-full overflow-y-auto pb-4', className)}
       style={{ backgroundColor: theme.background.main }}
     >
       {children}

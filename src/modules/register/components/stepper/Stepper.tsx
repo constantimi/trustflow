@@ -3,10 +3,10 @@ import cn from 'classnames';
 import { nanoid } from '@reduxjs/toolkit';
 import { Step, StepList } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
-import StepItem from './StepItem';
-import StepLine from './StepLine';
 import { getTheme } from '../../../shared/store/app/theme';
 import { useAppSelector } from '../../../shared/store/hooks';
+import StepItem from './StepItem';
+import StepLine from './StepLine';
 
 interface Props {
   steps: StepList;

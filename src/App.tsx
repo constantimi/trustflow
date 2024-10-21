@@ -17,7 +17,18 @@ const App = () => {
       <HelmetProvider>
         <Helmet>
           <title>{appName}</title>
-          <link rel="icon" type="image/svg+xml" href={appIcon} />
+          <link
+            rel="icon"
+            type="image/x-icon"
+            media="(prefers-color-scheme: light)"
+            href={appIcon}
+          />
+          <link
+            rel="icon"
+            type="image/x-icon"
+            media="(prefers-color-scheme: dark)"
+            href={appIcon}
+          />
         </Helmet>
       </HelmetProvider>
       <div className="hidden sm:block">

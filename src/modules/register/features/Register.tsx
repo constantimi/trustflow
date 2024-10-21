@@ -25,6 +25,7 @@ const Register = () => {
 
     const userStep = createUserInformationStep();
     newStepper = userStep;
+    newStepper = createPolicySelectionStep();
 
     if (newStepper) {
       const policyStep = createPolicySelectionStep();
@@ -84,7 +85,7 @@ const Register = () => {
         </div>
 
         <div className="flex w-full flex-col items-center px-4">
-          <div className="flex w-[38rem] flex-col items-center justify-center">
+          <div className="flex w-[30rem] flex-col items-center justify-center md:w-[48rem]">
             <Stepper steps={stepper} />
 
             {stepper.currentStep.title === StepNames.USER_FORM && (

@@ -35,6 +35,9 @@ const config = z
       z.object({
         background: z.object({
           main: z.string(),
+          sidebar: z.string(),
+          topbar: z.string(),
+          activeTab: z.string(),
         }),
         text: z.object({
           primary: z.string(),

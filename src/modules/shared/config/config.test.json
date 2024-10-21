@@ -10,7 +10,10 @@
   "themes": {
     "Light": {
       "background": {
-        "main": "#FFFFFF"
+        "main": "#FFFFFF",
+        "topbar": "#F6F6F6",
+        "activeTab": "#E5E5E7",
+        "sidebar": "#F6F6F6"
       },
       "text": {
         "primary": "#263779",

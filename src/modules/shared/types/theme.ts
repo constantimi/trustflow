@@ -1,6 +1,9 @@
 export type Theme = {
   background: {
     main: string;
+    sidebar: string;
+    topbar: string;
+    activeTab: string;
   };
   text: {
     primary: string;

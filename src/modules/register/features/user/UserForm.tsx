@@ -66,13 +66,13 @@ const UserForm = ({ nextStep }: Props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="flex w-full flex-col">
+    <Form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
       <div className="flex w-full flex-grow flex-col items-center justify-center">
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex w-full flex-col gap-x-4 md:flex-row">
           <Field
             label="First Name"
             type="text"
-            className="w-[18.5rem]"
+            className="w-full"
             placeholder="First Name"
             value={form.firstName.value}
             onChange={(e) => dispatch(setFirstName(e.target.value))}
@@ -83,7 +83,7 @@ const UserForm = ({ nextStep }: Props) => {
           <Field
             label="Last Name"
             type="text"
-            className="w-[18.5rem]"
+            className="w-full"
             placeholder="Last Name"
             value={form.lastName.value}
             onChange={(e) => dispatch(setLastName(e.target.value))}
@@ -92,11 +92,11 @@ const UserForm = ({ nextStep }: Props) => {
           />
         </div>
 
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex w-full flex-col gap-x-4 md:flex-row">
           <Field
             label="Email"
             type="email"
-            className="w-[18.5rem]"
+            className="w-full"
             placeholder="Email"
             value={form.email.value}
             onChange={(e) => dispatch(setEmail(e.target.value))}
@@ -107,7 +107,7 @@ const UserForm = ({ nextStep }: Props) => {
           <DatepickerComponent
             label="Date of birth"
             placeholder="Date of birth"
-            className="h-[2.5rem] w-[18.5rem] cursor-pointer rounded-md"
+            className="w-full"
             onChange={handleDateChange}
             selectedDate={form.dob.value}
             error={form.dob.error}
