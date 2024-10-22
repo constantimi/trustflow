@@ -88,6 +88,10 @@ const AddInsurance = () => {
   const handlePrevStep = () => {
     if (stepper.currentStep.prev) {
       setStepper({ ...stepper, currentStep: stepper.currentStep.prev });
+    } else {
+      dispatch(setInitialState());
+      setStepper(null);
+      navigate('/');
     }
   };
 
@@ -121,7 +125,7 @@ const AddInsurance = () => {
             <Stepper steps={stepper} />
 
             {stepper.currentStep.title === StepName.USER && (
-              <UserForm nextStep={handleNextStep} />
+              <UserForm nextStep={handleNextStep} prevStep={handlePrevStep} />
             )}
 
             {stepper.currentStep.title === StepName.POLICY && (

@@ -28,9 +28,10 @@ export const createUserInformationStep: () => Step = () => ({
 
 interface Props {
   nextStep: () => void;
+  prevStep: () => void;
 }
 
-const UserForm = ({ nextStep }: Props) => {
+const UserForm = ({ nextStep, prevStep }: Props) => {
   const { t } = useDashboardTranslation();
   const dispatch = useAppDispatch();
   const form = useAppSelector(getUserState);
@@ -117,7 +118,11 @@ const UserForm = ({ nextStep }: Props) => {
         </div>
       </div>
 
-      <div className="flex w-full flex-row justify-end">
+      <div className="flex w-full flex-row justify-end gap-2">
+        <Theme.DefaultButton onClick={prevStep} className="h-[2rem] w-[6rem]">
+          {t('Cancel')}
+        </Theme.DefaultButton>
+
         <Theme.PrimaryButton
           onClick={handleSubmit}
           className="h-[2rem] w-[6rem]"
