@@ -6,10 +6,11 @@ import { getTheme } from '../../../store/app/theme';
 interface Props {
   children: React.ReactNode | React.ReactNode[];
   className?: string;
+  style?: React.CSSProperties;
   dataTestId?: string;
 }
 
-const SecondaryText = ({ children, className, dataTestId }: Props) => {
+const SecondaryText = ({ children, className, style, dataTestId }: Props) => {
   const theme = useAppSelector(getTheme);
 
   return (
@@ -17,6 +18,7 @@ const SecondaryText = ({ children, className, dataTestId }: Props) => {
       className={cn('text-base', className)}
       style={{
         color: theme.text.secondary,
+        ...style,
       }}
       data-testid={dataTestId}
     >

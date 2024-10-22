@@ -39,11 +39,21 @@ const PolicyMobileCard = ({ policy, header, rows, selectedPolicy }: Props) => {
       }}
     >
       <div className="flex flex-shrink-0 flex-col items-start justify-center">
-        <Theme.PrimaryText className="text-left !text-3xl font-semibold">
+        <Theme.PrimaryText
+          className="text-left text-3xl font-semibold"
+          style={{
+            fontSize: '1.5rem',
+          }}
+        >
           {header[policy as Policy].title}
         </Theme.PrimaryText>
 
-        <Theme.PrimaryText className="relative text-left !text-2xl font-semibold">
+        <Theme.PrimaryText
+          className="relative text-left text-2xl font-semibold"
+          style={{
+            fontSize: '1.125rem',
+          }}
+        >
           {header[policy as Policy].price && (
             <span className="mr-1">{header[policy as Policy].price}</span>
           )}

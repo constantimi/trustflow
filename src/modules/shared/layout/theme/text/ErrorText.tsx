@@ -4,10 +4,11 @@ import { supportColors } from '../../../constants/theme';
 interface Props {
   children: React.ReactNode | React.ReactNode[];
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const ErrorText = ({ children, className }: Props) => (
-  <div className={className} style={{ color: supportColors.red }}>
+const ErrorText = ({ children, className, style }: Props) => (
+  <div className={className} style={{ color: supportColors.red, ...style }}>
     {children}
   </div>
 );
