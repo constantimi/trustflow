@@ -1,11 +1,14 @@
 import React from 'react';
 import { TableHeader } from './PolicyTable';
-import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
-import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
-import { getTheme } from '../../../../shared/store/app/theme';
-import { Theme } from '../../../../shared/layout/theme';
-import { Policy } from '../../../types/policy';
-import { setPolicy } from '../../../store/user/user-slice';
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../../shared/store/hooks';
+import { useDashboardTranslation } from '../../../../hooks/useDashboardTranslation';
+import { getTheme } from '../../../../../shared/store/app/theme';
+import { Theme } from '../../../../../shared/layout/theme';
+import { Policy } from '../../../../types/policy';
+import { setPolicy } from '../../../../store/insurance/insurance-slice';
 
 interface Props {
   header: TableHeader;
@@ -13,7 +16,7 @@ interface Props {
 }
 
 const PolicyTableHeader = ({ header, selectedPolicy }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const theme = useAppSelector(getTheme);
   const dispatch = useAppDispatch();
 

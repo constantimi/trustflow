@@ -2,7 +2,7 @@ import { Action, Reducer, combineReducers } from 'redux';
 import { RootState } from '.';
 import { resetStore } from './actions';
 import appReducers from './app/app';
-import dataReducers from '../../register/store';
+import dataReducers from '../../dashboard/store';
 
 export const combinedReducer = combineReducers({
   app: appReducers,

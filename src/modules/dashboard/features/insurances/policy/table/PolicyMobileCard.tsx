@@ -1,12 +1,15 @@
 import React from 'react';
 import { TableHeader, TableRow } from './PolicyTable';
-import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
-import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
-import { Theme } from '../../../../shared/layout/theme';
-import { getTheme } from '../../../../shared/store/app/theme';
-import { setPolicy } from '../../../store/user/user-slice';
-import { Policy } from '../../../types/policy';
-import CheckIcon from '../../icons/CheckIcon';
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../../shared/store/hooks';
+import { useDashboardTranslation } from '../../../../hooks/useDashboardTranslation';
+import { Theme } from '../../../../../shared/layout/theme';
+import { getTheme } from '../../../../../shared/store/app/theme';
+import { setPolicy } from '../../../../store/insurance/insurance-slice';
+import { Policy } from '../../../../types/policy';
+import CheckIcon from '../../../../components/icons/CheckIcon';
 
 interface Props {
   policy: Policy;
@@ -16,7 +19,7 @@ interface Props {
 }
 
 const PolicyMobileCard = ({ policy, header, rows, selectedPolicy }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const theme = useAppSelector(getTheme);
   const dispatch = useAppDispatch();
 

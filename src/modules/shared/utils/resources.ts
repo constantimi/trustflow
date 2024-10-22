@@ -1,15 +1,15 @@
 import sharedEnTranslation from '../lang/en.json';
 import sharedNlTranslation from '../lang/nl.json';
-import registerEnTranslation from '../../register/lang/en.json';
-import registerNlTranslation from '../../register/lang/nl.json';
+import dashboardEnTranslation from '../../dashboard/lang/en.json';
+import dashboardNlTranslation from '../../dashboard/lang/nl.json';
 
 const resources = {
   en: {
-    register: { ...registerEnTranslation },
+    dashboard: { ...dashboardEnTranslation },
     shared: { ...sharedEnTranslation },
   },
   nl: {
-    register: { ...registerNlTranslation },
+    dashboard: { ...dashboardNlTranslation },
     shared: { ...sharedNlTranslation },
   },
 };

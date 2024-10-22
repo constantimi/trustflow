@@ -1,10 +1,10 @@
 import React from 'react';
 import { TableRow } from './PolicyTable';
-import { useAppSelector } from '../../../../shared/store/hooks';
-import { getTheme } from '../../../../shared/store/app/theme';
-import { Theme } from '../../../../shared/layout/theme';
-import { Policy } from '../../../types/policy';
-import CheckIcon from '../../icons/CheckIcon';
+import { useAppSelector } from '../../../../../shared/store/hooks';
+import { getTheme } from '../../../../../shared/store/app/theme';
+import { Theme } from '../../../../../shared/layout/theme';
+import { Policy } from '../../../../types/policy';
+import CheckIcon from '../../../../components/icons/CheckIcon';
 
 interface Props {
   rows: TableRow[];

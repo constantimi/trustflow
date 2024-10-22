@@ -1,11 +1,11 @@
 import React from 'react';
-import { Policy } from '../../../types/policy';
-import { useAppSelector } from '../../../../shared/store/hooks';
-import { getPolicyState } from '../../../store/user/user-slice';
+import { Policy } from '../../../../types/policy';
+import { useAppSelector } from '../../../../../shared/store/hooks';
+import { getPolicyState } from '../../../../store/insurance/insurance-slice';
 import PolicyTableHeader from './PolicyTableHeader';
 import PolicyTableBody from './PolicyTableBody';
 import PolicyMobileCard from './PolicyMobileCard';
-import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
+import { useDashboardTranslation } from '../../../../hooks/useDashboardTranslation';
 
 export type TableHeaderCell = {
   title: string;
@@ -103,7 +103,7 @@ export const tableRows = (t: (t: string) => string): TableRow[] => [
 ];
 
 export const PolicyTable = () => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const selected = useAppSelector(getPolicyState);
 
   const header = tableHeader(t);

@@ -5,7 +5,7 @@ import { Step, StepList } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
 import { getTheme } from '../../../shared/store/app/theme';
 import { useAppSelector } from '../../../shared/store/hooks';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
+import { useDashboardTranslation } from '../../hooks/useDashboardTranslation';
 import StepItem from './StepItem';
 import StepLine from './StepLine';
 
@@ -15,7 +15,7 @@ interface Props {
 
 const Stepper = ({ steps }: Props) => {
   const theme = useAppSelector(getTheme);
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
 
   const renderStepChain = () => {
     const chain: React.ReactElement[] = [];

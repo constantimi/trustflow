@@ -1,17 +1,17 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../shared/store';
+import { Status } from '../../../shared/types/common';
+import { postUserPolicy } from './insurance-thunk';
 import isEmailValid from '../../../shared/helpers/validateEmail';
 import isDobValid from '../../../shared/helpers/validateDob';
-import { Status } from '../../../shared/types/common';
-import { postUserPolicy } from './user-thunk';
 
 interface Field {
   value: string;
   error: string;
 }
 
-interface UserState {
-  form: {
+interface InsuranceState {
+  user: {
     firstName: Field;
     lastName: Field;
     email: Field;
@@ -21,8 +21,8 @@ interface UserState {
   status: Status;
 }
 
-const initialState: UserState = {
-  form: {
+const initialState: InsuranceState = {
+  user: {
     firstName: { value: '', error: '' },
     lastName: { value: '', error: '' },
     email: { value: '', error: '' },
@@ -41,7 +41,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setInitialState: (state) => {
-      state.form = { ...initialState.form };
+      state.user = { ...initialState.user };
       state.policy = { ...initialState.policy };
       state.status = { ...initialState.status };
     },
@@ -49,54 +49,54 @@ const userSlice = createSlice({
       state.status = { ...initialState.status };
     },
     setFirstName: (state, action: PayloadAction<string>) => {
-      state.form.firstName.value = action.payload;
-      state.form.firstName.error = '';
+      state.user.firstName.value = action.payload;
+      state.user.firstName.error = '';
     },
     validateFirstName: (state) => {
-      if (state.form.firstName.value === '') {
-        state.form.firstName.error = 'First name is a required field.';
+      if (state.user.firstName.value === '') {
+        state.user.firstName.error = 'First name is a required field.';
       } else {
-        state.form.firstName.error = '';
+        state.user.firstName.error = '';
       }
     },
     setLastName: (state, action: PayloadAction<string>) => {
-      state.form.lastName.value = action.payload;
-      state.form.lastName.error = '';
+      state.user.lastName.value = action.payload;
+      state.user.lastName.error = '';
     },
     validateLastName: (state) => {
-      if (state.form.lastName.value === '') {
-        state.form.lastName.error = 'Last name is a required field.';
+      if (state.user.lastName.value === '') {
+        state.user.lastName.error = 'Last name is a required field.';
       } else {
-        state.form.lastName.error = '';
+        state.user.lastName.error = '';
       }
     },
     setEmail: (state, action: PayloadAction<string>) => {
-      state.form.email.value = action.payload;
-      state.form.email.error = '';
+      state.user.email.value = action.payload;
+      state.user.email.error = '';
     },
     validateEmail: (state) => {
       if (
-        state.form.email.value !== '' &&
-        !isEmailValid(state.form.email.value)
+        state.user.email.value !== '' &&
+        !isEmailValid(state.user.email.value)
       ) {
-        state.form.email.error = "The email isn't valid.";
-      } else if (state.form.email.value === '') {
-        state.form.email.error = 'Email is a required field.';
+        state.user.email.error = "The email isn't valid.";
+      } else if (state.user.email.value === '') {
+        state.user.email.error = 'Email is a required field.';
       } else {
-        state.form.email.error = '';
+        state.user.email.error = '';
       }
     },
     setDob: (state, action: PayloadAction<string>) => {
-      state.form.dob.value = action.payload;
-      state.form.dob.error = '';
+      state.user.dob.value = action.payload;
+      state.user.dob.error = '';
     },
     validateDob: (state) => {
-      if (state.form.dob.value !== '' && !isDobValid(state.form.dob.value)) {
-        state.form.dob.error = "The date of birth isn't valid.";
-      } else if (state.form.dob.value === '') {
-        state.form.dob.error = 'Date of birth is a required field.';
+      if (state.user.dob.value !== '' && !isDobValid(state.user.dob.value)) {
+        state.user.dob.error = "The date of birth isn't valid.";
+      } else if (state.user.dob.value === '') {
+        state.user.dob.error = 'Date of birth is a required field.';
       } else {
-        state.form.dob.error = '';
+        state.user.dob.error = '';
       }
     },
     setPolicy: (state, action: PayloadAction<string>) => {
@@ -174,17 +174,17 @@ export const {
 
 export default userSlice.reducer;
 
-export const getFormState = createSelector(
-  [(state: RootState) => state.data.user.form],
+export const getUserState = createSelector(
+  [(state: RootState) => state.data.insurance.user],
   (form) => form
 );
 
 export const getPolicyState = createSelector(
-  [(state: RootState) => state.data.user.policy],
+  [(state: RootState) => state.data.insurance.policy],
   (policy) => policy
 );
 
 export const getStatusState = createSelector(
-  [(state: RootState) => state.data.user.status],
+  [(state: RootState) => state.data.insurance.status],
   (status) => status
 );

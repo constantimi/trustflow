@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Step, StepList, StepName } from '../types/step';
+import { Step, StepList, StepName } from '../../types/step';
 import UserForm, { createUserInformationStep } from './user/UserForm';
 import {
   createPolicySelectionStep,
   PolicySelection,
 } from './policy/PolicySelection';
 import { createSummaryScreenStep, Summary } from './summary/Summary';
-import { useAppDispatch, useAppSelector } from '../../shared/store/hooks';
-import { useRegisterTranslation } from '../hooks/useRegisterTranslation';
-import { postUserPolicy } from '../store/user/user-thunk';
-import { Theme } from '../../shared/layout/theme';
-import Stepper from '../components/stepper/Stepper';
-import Content from '../../shared/layout/content/Content';
-import Layout from '../../shared/layout/layout/Layout';
+import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
+import { useDashboardTranslation } from '../../hooks/useDashboardTranslation';
+import { postUserPolicy } from '../../store/insurance/insurance-thunk';
+import { Theme } from '../../../shared/layout/theme';
+import Stepper from '../../components/stepper/Stepper';
+import Content from '../../../shared/layout/content/Content';
+import Layout from '../../../shared/layout/layout/Layout';
 import {
   clearStatus,
   getStatusState,
   setInitialState,
-} from '../store/user/user-slice';
-import toast from '../../shared/components/toast/AppToast';
+} from '../../store/insurance/insurance-slice';
+import toast from '../../../shared/components/toast/AppToast';
 
-const Register = () => {
+const AddInsurance = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
 
   const [stepper, setStepper] = useState<null | StepList>();
 
@@ -146,4 +146,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AddInsurance;

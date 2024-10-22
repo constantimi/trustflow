@@ -1,16 +1,16 @@
 import React from 'react';
-import { useAppSelector } from '../../../shared/store/hooks';
+import { useAppSelector } from '../../../../shared/store/hooks';
 import {
-  getFormState,
+  getUserState,
   getPolicyState,
   getStatusState,
-} from '../../store/user/user-slice';
-import { Step, StepName } from '../../types/step';
-import { Theme } from '../../../shared/layout/theme';
-import { getTheme } from '../../../shared/store/app/theme';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
-import ArrowIcon from '../icons/ArrowIcon';
-import LoadingIcon from '../../../shared/components/icons/LoadingIcon';
+} from '../../../store/insurance/insurance-slice';
+import { Step, StepName } from '../../../types/step';
+import { Theme } from '../../../../shared/layout/theme';
+import { getTheme } from '../../../../shared/store/app/theme';
+import { useDashboardTranslation } from '../../../hooks/useDashboardTranslation';
+import ArrowIcon from '../../../components/icons/ArrowIcon';
+import LoadingIcon from '../../../../shared/components/icons/LoadingIcon';
 
 export const createSummaryScreenStep: () => Step = () => ({
   title: StepName.SUMMARY,
@@ -23,9 +23,9 @@ interface Props {
 }
 
 export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const theme = useAppSelector(getTheme);
-  const user = useAppSelector(getFormState);
+  const user = useAppSelector(getUserState);
   const policy = useAppSelector(getPolicyState);
 
   const status = useAppSelector(getStatusState);

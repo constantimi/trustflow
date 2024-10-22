@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import userReducer from './user/user-slice';
+import insuranceReducer from './insurance/insurance-slice';
 
 const dataReducers = combineReducers({
-  user: userReducer,
+  insurance: insuranceReducer,
 });
 
 export default dataReducers;

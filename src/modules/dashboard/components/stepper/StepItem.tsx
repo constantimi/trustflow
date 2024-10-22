@@ -2,7 +2,7 @@ import React from 'react';
 import { Step } from '../../types/step';
 import { useAppSelector } from '../../../shared/store/hooks';
 import { getTheme } from '../../../shared/store/app/theme';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
+import { useDashboardTranslation } from '../../hooks/useDashboardTranslation';
 
 interface StepItemProps {
   step: Step;
@@ -10,7 +10,7 @@ interface StepItemProps {
 }
 
 const StepItem = ({ step, isCurrentStep }: StepItemProps) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const theme = useAppSelector(getTheme);
 
   const stepColor =

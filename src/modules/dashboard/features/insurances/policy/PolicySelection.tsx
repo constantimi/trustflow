@@ -1,10 +1,13 @@
 import React from 'react';
-import { Step, StepName } from '../../types/step';
-import { Theme } from '../../../shared/layout/theme';
+import { Step, StepName } from '../../../types/step';
+import { Theme } from '../../../../shared/layout/theme';
 import { PolicyTable } from './table/PolicyTable';
-import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
-import { getPolicyState, validatePolicy } from '../../store/user/user-slice';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
+import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
+import {
+  getPolicyState,
+  validatePolicy,
+} from '../../../store/insurance/insurance-slice';
+import { useDashboardTranslation } from '../../../hooks/useDashboardTranslation';
 
 export const createPolicySelectionStep: () => Step = () => ({
   title: StepName.POLICY,
@@ -16,7 +19,7 @@ interface Props {
 }
 
 export const PolicySelection = ({ nextStep, prevStep }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const dispatch = useAppDispatch();
 
   const policy = useAppSelector(getPolicyState);

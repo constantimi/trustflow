@@ -6,7 +6,7 @@ import { supportColors } from '../../../shared/constants/theme';
 import { useAppSelector } from '../../../shared/store/hooks';
 import { getTheme } from '../../../shared/store/app/theme';
 import WarningIcon from '../../../shared/components/icons/WarningIcon';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
+import { useDashboardTranslation } from '../../hooks/useDashboardTranslation';
 
 interface Props {
   label?: string;
@@ -31,7 +31,7 @@ const Field = ({
   value,
   className,
 }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const theme = useAppSelector(getTheme);
 
   return (

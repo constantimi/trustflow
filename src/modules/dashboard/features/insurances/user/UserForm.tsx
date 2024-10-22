@@ -1,13 +1,13 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
-import { Step, StepName } from '../../types/step';
-import Form from '../../components/form/Form';
-import Field from '../../components/form/Field';
+import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
+import { Step, StepName } from '../../../types/step';
+import Form from '../../../components/form/Form';
+import Field from '../../../components/form/Field';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import DatepickerComponent from '../../../shared/components/datepicker/DatePicker';
+import DatepickerComponent from '../../../../shared/components/datepicker/DatePicker';
 import {
-  getFormState,
+  getUserState,
   setDob,
   setFirstName,
   setLastName,
@@ -16,11 +16,11 @@ import {
   validateEmail,
   validateFirstName,
   validateLastName,
-} from '../../store/user/user-slice';
-import isDobValid from '../../../shared/helpers/validateDob';
-import isEmailValid from '../../../shared/helpers/validateEmail';
-import { Theme } from '../../../shared/layout/theme';
-import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
+} from '../../../store/insurance/insurance-slice';
+import isDobValid from '../../../../shared/helpers/validateDob';
+import isEmailValid from '../../../../shared/helpers/validateEmail';
+import { Theme } from '../../../../shared/layout/theme';
+import { useDashboardTranslation } from '../../../hooks/useDashboardTranslation';
 
 export const createUserInformationStep: () => Step = () => ({
   title: StepName.USER,
@@ -31,9 +31,9 @@ interface Props {
 }
 
 const UserForm = ({ nextStep }: Props) => {
-  const { t } = useRegisterTranslation();
+  const { t } = useDashboardTranslation();
   const dispatch = useAppDispatch();
-  const form = useAppSelector(getFormState);
+  const form = useAppSelector(getUserState);
 
   const handleDateChange = (date: Date) => {
     // Assuming you format the date into a string here
