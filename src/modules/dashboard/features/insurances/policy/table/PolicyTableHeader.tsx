@@ -36,7 +36,7 @@ const PolicyTableHeader = ({ header, selectedPolicy }: Props) => {
             }}
           >
             <div className="flex flex-col items-start px-4 py-2">
-              <Theme.PrimaryText className="text-left !text-3xl font-semibold">
+              <Theme.PrimaryText className="text-left text-3xl font-semibold">
                 {header[policy as Policy].title}
               </Theme.PrimaryText>
 
