@@ -1,5 +1,8 @@
 # TrustFlow Isurance Policy Form
 
+![Screenshot 2024-10-22 at 22 18 54](https://github.com/user-attachments/assets/1a2a4174-8e1c-47db-9433-70385193d20c)
+
+
 <span style="font-size:12px">
 
 This project implements a multi-step form for registering and choosing an insurance policy. The form is built using **React** and features navigation between steps, form validation, and a summary screen. The app runs as both a web application and an Electron-based desktop app, showcasing its multi-cross-platform capabilities.
