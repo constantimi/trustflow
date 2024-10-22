@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IconProps } from '../../types/icon';
 
 const ToastInfoIcon = ({
-  size = '20',
+  size = '16',
   fill = '#007BC7',
   className,
   ...props

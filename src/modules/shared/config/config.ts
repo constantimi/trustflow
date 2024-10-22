@@ -22,8 +22,13 @@ switch (window.location.hostname) {
 const config = z
   .object({
     API_URL: z.string(),
-    appIcon: z.string(),
-    appName: z.string(),
+    app: z.object({
+      icon: z.object({
+        light: z.string(),
+        dark: z.string(),
+      }),
+      name: z.string(),
+    }),
     settings: z.object({
       defaultLang: z.string(),
       defaultFontSize: z.string(),

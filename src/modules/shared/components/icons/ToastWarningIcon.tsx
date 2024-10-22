@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IconProps } from '../../types/icon';
 
 const ToastWarningIcon = ({
-  size = '20',
+  size = '16',
   fill = '#FA0',
   className,
   ...props

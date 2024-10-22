@@ -1,20 +1,25 @@
 {
-  "API_URL": "https://development-app.com",
-  "appIcon": "https://images.squarespace-cdn.com/content/v1/655486a453fc7b7a3b028b00/d4b6493d-53c4-4f54-8f2c-b8ad9537f198/favicon.ico?format=100w",
-  "appName": "TrustFlow",
+  "API_URL": "http://localhost:3001",
+  "app": {
+    "icon": {
+      "light": "https://images.squarespace-cdn.com/content/v1/655486a453fc7b7a3b028b00/d4b6493d-53c4-4f54-8f2c-b8ad9537f198/favicon.ico?format=100w",
+      "dark": "https://images.squarespace-cdn.com/content/v1/655486a453fc7b7a3b028b00/065fb74f-655e-4647-8f32-8453fa78f957/favicon.ico?format=100w"
+    },
+    "name": "TrustFlow"
+  },
   "settings": {
     "defaultLang": "en",
     "defaultFontSize": "M",
-    "defaultTheme": "Light"
+    "defaultTheme": "light"
   },
   "dev": true,
   "themes": {
-    "Light": {
+    "light": {
       "background": {
         "main": "#FFFFFF",
-        "topbar": "#F6F6F6",
-        "activeTab": "#f8fafc",
-        "sidebar": "#F6F6F6"
+        "topbar": "#FFFFFF",
+        "activeTab": "#F8FAFC",
+        "sidebar": "#FBFBFB"
       },
       "text": {
         "primary": "#263779",
@@ -28,12 +33,39 @@
         "disabled": "#0C2761"
       },
       "input": {
-        "primary": "#F6F6F6",
+        "primary": "#F2F2F2",
         "default": "#FFFFFF"
       },
       "border": {
         "primary": "#E1E7F2",
         "secondary": "#D4D7E4"
+      }
+    },
+    "dark": {
+      "background": {
+        "main": "#000000",
+        "topbar": "#000000",
+        "activeTab": "#17151C",
+        "sidebar": "#000000"
+      },
+      "text": {
+        "primary": "#D0D0D0",
+        "secondary": "#9A9A9A",
+        "disabled": "#9A9A9A",
+        "button": "#000000"
+      },
+      "button": {
+        "color": "#FFFFFF",
+        "hover": "#D7D7D7",
+        "disabled": "#ACACAC"
+      },
+      "input": {
+        "primary": "#D0D0D0",
+        "default": "#F6F6F6"
+      },
+      "border": {
+        "primary": "#232323",
+        "secondary": "#090909"
       }
     }
   }

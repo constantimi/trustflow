@@ -10,24 +10,25 @@ import Router from './Router';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  const { appName, appIcon } = config;
+  const { app } = config;
 
   return (
     <Provider store={storeManager.store}>
       <HelmetProvider>
         <Helmet>
-          <title>{appName}</title>
+          <title>{app.name}</title>
           <link
             rel="icon"
             type="image/x-icon"
             media="(prefers-color-scheme: light)"
-            href={appIcon}
+            href={app.icon.light}
           />
+
           <link
             rel="icon"
             type="image/x-icon"
             media="(prefers-color-scheme: dark)"
-            href={appIcon}
+            href={app.icon.dark}
           />
         </Helmet>
       </HelmetProvider>

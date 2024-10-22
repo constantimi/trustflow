@@ -1,3 +1,8 @@
+export enum Mode {
+  DARK = 'dark',
+  LIGHT = 'light',
+}
+
 export type Theme = {
   background: {
     main: string;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IconProps } from '../../types/icon';
 
 const ToastErrorIcon = ({
-  width = '23',
+  width = '16',
   height = '20',
   fill = '#CF0000',
   className,
