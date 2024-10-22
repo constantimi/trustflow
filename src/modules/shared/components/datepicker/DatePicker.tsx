@@ -30,15 +30,20 @@ const CustomInput = React.forwardRef<HTMLButtonElement, CustomInputProps>(
         <style>
           {`
             .react-datepicker-wrapper {
-            width: 100%;
+              width: 100%;
             }
 
             .calendar {
-            border: 1px solid ${theme.border.primary};
+              border: 1px solid ${theme.border.primary};
             }
 
             .calendar__day {
-            color: inherit;
+              color: ${theme.text.primary};
+            }
+
+            .calendar__day:hover {
+              background-color: ${theme.button.color};
+              color: ${theme.text.secondary};
             }
 
             .react-datepicker__current-month,
@@ -47,15 +52,23 @@ const CustomInput = React.forwardRef<HTMLButtonElement, CustomInputProps>(
             .react-datepicker__month-select,
             .react-datepicker__year-select,
             .calendar {
-            color: inherit;
-            background-color: ${theme.background.main};
-            outline: none;
+              color: ${theme.text.primary};
+              background-color: ${theme.background.main};
+              outline: none;
             }
             .react-datepicker__year-select {
-            padding: 0.8rem;
+              padding: 0.8rem;
             }
             .react-datepicker__triangle::after {
-            border-color: ${theme.background.main} transparent transparent transparent !important;
+              border-color: ${theme.background.main} transparent transparent transparent !important;
+            }
+            .react-datepicker__day--today {
+              background-color: ${theme.button.color};
+              color: ${theme.text.secondary};
+              font-weight: normal;
+            }
+            .react-datepicker__day:hover {
+              color: ${theme.text.button};
             }
             `}
         </style>

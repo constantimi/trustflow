@@ -5,32 +5,33 @@ import { getTheme } from '../../store/app/theme';
 import { useAppSelector } from '../../store/hooks';
 
 type Props = {
-  children?: React.ReactNode[] | React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
 };
 
 /**
- * Sidebar Component
+ * Header Component
  *
- * This component is designed to wrap all the elements of the sidebar of the application.
+ * This component is designed to wrap all the headers of the application.
  * It applies a theme background, so when using this component, there's no need to manually set a background color
  * as it's already defined by the theme.
  * The `children` prop can be a single ReactNode and represents the content to be displayed
- * in the sidebar.
+ * in the header. The height of the header is set to 10% of the viewport height.
+ * This component utilizes the `Topbar` component from the theme layout to apply the theme
+ * background.
  *
  */
-const Sidebar = ({ children, className, style }: Props) => {
+const Header = ({ children, className }: Props) => {
   const theme = useAppSelector(getTheme);
 
   return (
-    <Theme.Sidebar
-      className={cn('border-r-[0.5px]', className)}
-      style={{ borderColor: theme.border.primary, ...style }}
+    <Theme.Topbar
+      className={cn('border-b-[0.5px]', className)}
+      style={{ borderColor: theme.border.primary }}
     >
       {children}
-    </Theme.Sidebar>
+    </Theme.Topbar>
   );
 };
 
-export default Sidebar;
+export default Header;

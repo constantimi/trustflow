@@ -3,12 +3,12 @@ import { refreshAccessToken } from './auth-thunk';
 import { Status } from '../../../types/common';
 import { RootState } from '../..';
 
-export type AuthStore = {
+export interface AuthState {
   authenticated: boolean;
   status: Status;
-};
+}
 
-const initialState: AuthStore = {
+const initialState: AuthState = {
   authenticated: false,
   status: {
     code: -1,

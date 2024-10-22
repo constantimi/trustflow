@@ -12,14 +12,13 @@ import { useDashboardTranslation } from '../../hooks/useDashboardTranslation';
 import { postUserPolicy } from '../../store/insurance/insurance-thunk';
 import { Theme } from '../../../shared/layout/theme';
 import Stepper from '../../components/stepper/Stepper';
-import Content from '../../../shared/layout/content/Content';
-import Layout from '../../../shared/layout/layout/Layout';
 import {
   clearStatus,
   getStatusState,
   setInitialState,
 } from '../../store/insurance/insurance-slice';
 import toast from '../../../shared/components/toast/AppToast';
+import DashboardLayout from '../../layout/DashboardLayout';
 
 const AddInsurance = () => {
   const dispatch = useAppDispatch();
@@ -106,10 +105,10 @@ const AddInsurance = () => {
   };
 
   return (
-    <Layout>
-      <Content className="flex flex-col items-center">
+    <DashboardLayout>
+      <div className="flex flex-col items-center">
         <div className="mb-4 mt-[6rem] flex w-full flex-col items-center justify-center gap-1">
-          <Theme.PrimaryText className="!text-3xl font-medium">
+          <Theme.PrimaryText className="!text-[1.5rem] font-medium">
             {t('Create Insurance Policy')}
           </Theme.PrimaryText>
           <Theme.SecondaryText className="text-lg">
@@ -141,8 +140,8 @@ const AddInsurance = () => {
             )}
           </div>
         </div>
-      </Content>
-    </Layout>
+      </div>
+    </DashboardLayout>
   );
 };
 

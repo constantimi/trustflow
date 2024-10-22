@@ -28,19 +28,19 @@ export const tableHeader = (t: (t: string) => string): TableHeader => ({
   [Policy.BASIC]: {
     title: t('Basic'),
     price: t('€200'),
-    period: t('monthly'),
+    period: t('p/m'),
     description: t('100% reimbursement at contracted hospitals'),
   },
   [Policy.STANDARD]: {
     title: t('Standard'),
     price: t('€300'),
-    period: t('monthly'),
+    period: t('p/m'),
     description: t('100% reimbursement at all contracted hospitals'),
   },
   [Policy.PREMIUM]: {
     title: t('Premium'),
     price: t('€400'),
-    period: t('monthly'),
+    period: t('p/m'),
     description: t('100% reimbursement at any hospital'),
   },
 });

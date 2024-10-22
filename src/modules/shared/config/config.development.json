@@ -1,5 +1,5 @@
 {
-  "API_URL": "https://development-app.com",
+  "API_URL": "http://localhost:3002",
   "appIcon": "https://images.squarespace-cdn.com/content/v1/655486a453fc7b7a3b028b00/d4b6493d-53c4-4f54-8f2c-b8ad9537f198/favicon.ico?format=100w",
   "appName": "TrustFlow",
   "settings": {
@@ -12,9 +12,9 @@
     "Light": {
       "background": {
         "main": "#FFFFFF",
-        "topbar": "#F6F6F6",
-        "activeTab": "#f8fafc",
-        "sidebar": "#F6F6F6"
+        "topbar": "#FFFFFF",
+        "activeTab": "#F8FAFC",
+        "sidebar": "#FBFBFB"
       },
       "text": {
         "primary": "#263779",
@@ -28,12 +28,39 @@
         "disabled": "#0C2761"
       },
       "input": {
-        "primary": "#F6F6F6",
+        "primary": "#F2F2F2",
         "default": "#FFFFFF"
       },
       "border": {
         "primary": "#E1E7F2",
         "secondary": "#D4D7E4"
+      }
+    },
+    "Dark": {
+      "background": {
+        "main": "#000000",
+        "topbar": "#000000",
+        "activeTab": "#1A1A1A",
+        "sidebar": "#000000"
+      },
+      "text": {
+        "primary": "#D0D0D0",
+        "secondary": "#E1E1E1",
+        "disabled": "#9A9A9A",
+        "button": "#000000"
+      },
+      "button": {
+        "color": "#FFFFFF",
+        "hover": "#D7D7D7",
+        "disabled": "#ACACAC"
+      },
+      "input": {
+        "primary": "#D0D0D0",
+        "default": "#F6F6F6"
+      },
+      "border": {
+        "primary": "#232323",
+        "secondary": "#090909"
       }
     }
   }

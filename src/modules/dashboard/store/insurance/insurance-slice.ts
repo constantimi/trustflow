@@ -105,10 +105,13 @@ const userSlice = createSlice({
     },
     validatePolicy: (state) => {
       if (!state.policy.value) {
-        state.policy.error = 'You must accept the policy.';
+        state.policy.error = 'You must select insurance policy.';
       } else {
         state.policy.error = '';
       }
+    },
+    clearPolicyError: (state) => {
+      state.policy.error = '';
     },
   },
   extraReducers: (builder) => {
@@ -170,6 +173,7 @@ export const {
   validateDob,
   setPolicy,
   validatePolicy,
+  clearPolicyError,
 } = userSlice.actions;
 
 export default userSlice.reducer;
