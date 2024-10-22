@@ -6,6 +6,7 @@ import { supportColors } from '../../../shared/constants/theme';
 import { useAppSelector } from '../../../shared/store/hooks';
 import { getTheme } from '../../../shared/store/app/theme';
 import WarningIcon from '../../../shared/components/icons/WarningIcon';
+import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
 
 interface Props {
   label?: string;
@@ -30,13 +31,16 @@ const Field = ({
   value,
   className,
 }: Props) => {
+  const { t } = useRegisterTranslation();
   const theme = useAppSelector(getTheme);
 
   return (
     <div className={cn('flex flex-col', className)}>
       {label && (
         <div className="flex w-full flex-shrink-0 justify-start">
-          <Theme.PrimaryText className="text-base">{label}</Theme.PrimaryText>
+          <Theme.PrimaryText className="text-base">
+            {t(label)}
+          </Theme.PrimaryText>
         </div>
       )}
       <Theme.Input
@@ -57,7 +61,7 @@ const Field = ({
         {error && (
           <div className="flex flex-row items-center gap-1">
             <WarningIcon fill={supportColors.red} />
-            <Theme.ErrorText className="text-sm">{error}</Theme.ErrorText>
+            <Theme.ErrorText className="text-sm">{t(error)}</Theme.ErrorText>
           </div>
         )}
       </div>

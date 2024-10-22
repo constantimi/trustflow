@@ -20,6 +20,7 @@ import {
 import isDobValid from '../../../shared/helpers/validateDob';
 import isEmailValid from '../../../shared/helpers/validateEmail';
 import { Theme } from '../../../shared/layout/theme';
+import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
 
 export const createUserInformationStep: () => Step = () => ({
   title: StepName.USER,
@@ -30,6 +31,7 @@ interface Props {
 }
 
 const UserForm = ({ nextStep }: Props) => {
+  const { t } = useRegisterTranslation();
   const dispatch = useAppDispatch();
   const form = useAppSelector(getFormState);
 
@@ -70,10 +72,10 @@ const UserForm = ({ nextStep }: Props) => {
       <div className="flex w-full flex-grow flex-col items-center justify-center">
         <div className="flex w-full flex-col gap-x-4 md:flex-row">
           <Field
-            label="First Name"
+            label={t('First Name')}
             type="text"
             className="w-full"
-            placeholder="First Name"
+            placeholder={t('First Name')}
             value={form.firstName.value}
             onChange={(e) => dispatch(setFirstName(e.target.value))}
             onBlur={() => dispatch(validateFirstName())}
@@ -81,10 +83,10 @@ const UserForm = ({ nextStep }: Props) => {
           />
 
           <Field
-            label="Last Name"
+            label={t('Last Name')}
             type="text"
             className="w-full"
-            placeholder="Last Name"
+            placeholder={t('Last Name')}
             value={form.lastName.value}
             onChange={(e) => dispatch(setLastName(e.target.value))}
             onBlur={() => dispatch(validateLastName())}
@@ -94,10 +96,10 @@ const UserForm = ({ nextStep }: Props) => {
 
         <div className="flex w-full flex-col gap-x-4 md:flex-row">
           <Field
-            label="Email"
+            label={t('Email')}
             type="email"
             className="w-full"
-            placeholder="Email"
+            placeholder={t('Email')}
             value={form.email.value}
             onChange={(e) => dispatch(setEmail(e.target.value))}
             onBlur={() => dispatch(validateEmail())}
@@ -105,8 +107,8 @@ const UserForm = ({ nextStep }: Props) => {
           />
 
           <DatepickerComponent
-            label="Date of birth"
-            placeholder="Date of birth"
+            label={t('Date of birth')}
+            placeholder={t('Date of birth')}
             className="w-full"
             onChange={handleDateChange}
             selectedDate={form.dob.value}
@@ -120,7 +122,7 @@ const UserForm = ({ nextStep }: Props) => {
           onClick={handleSubmit}
           className="h-[2rem] w-[6rem]"
         >
-          Next
+          {t('Next')}
         </Theme.PrimaryButton>
       </div>
     </Form>

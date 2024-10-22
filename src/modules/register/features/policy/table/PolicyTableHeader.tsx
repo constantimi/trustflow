@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableHeader } from './PolicyTable';
 import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
+import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
 import { getTheme } from '../../../../shared/store/app/theme';
 import { Theme } from '../../../../shared/layout/theme';
 import { Policy } from '../../../types/policy';
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const PolicyTableHeader = ({ header, selectedPolicy }: Props) => {
+  const { t } = useRegisterTranslation();
   const theme = useAppSelector(getTheme);
   const dispatch = useAppDispatch();
 
@@ -53,7 +55,7 @@ const PolicyTableHeader = ({ header, selectedPolicy }: Props) => {
                   className="h-[2rem] w-[6rem] font-normal"
                   disable={selectedPolicy === policy}
                 >
-                  {selectedPolicy === policy ? 'Selected' : 'Choose'}
+                  {selectedPolicy === policy ? t('Selected') : t('Choose')}
                 </Theme.PrimaryButton>
               </div>
             </div>

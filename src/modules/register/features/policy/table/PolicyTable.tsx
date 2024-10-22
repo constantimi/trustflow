@@ -5,6 +5,7 @@ import { getPolicyState } from '../../../store/user/user-slice';
 import PolicyTableHeader from './PolicyTableHeader';
 import PolicyTableBody from './PolicyTableBody';
 import PolicyMobileCard from './PolicyMobileCard';
+import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
 
 export type TableHeaderCell = {
   title: string;
@@ -23,89 +24,97 @@ export type TableRow = {
   policies: Record<Policy, TableCell>;
 };
 
-export const tableHeader = (): TableHeader => ({
+export const tableHeader = (t: (t: string) => string): TableHeader => ({
   [Policy.BASIC]: {
-    title: 'Basic',
-    price: '€200',
-    period: 'monthly',
-    description: '100% reimbursement at contracted hospitals',
+    title: t('Basic'),
+    price: t('€200'),
+    period: t('monthly'),
+    description: t('100% reimbursement at contracted hospitals'),
   },
   [Policy.STANDARD]: {
-    title: 'Standard',
-    price: '€300',
-    period: 'monthly',
-    description: '100% reimbursement at all contracted hospitals',
+    title: t('Standard'),
+    price: t('€300'),
+    period: t('monthly'),
+    description: t('100% reimbursement at all contracted hospitals'),
   },
   [Policy.PREMIUM]: {
-    title: 'Premium',
-    price: '€400',
-    period: 'monthly',
-    description: '100% reimbursement at any hospital',
+    title: t('Premium'),
+    price: t('€400'),
+    period: t('monthly'),
+    description: t('100% reimbursement at any hospital'),
   },
 });
 
-export const tableRows: TableRow[] = [
+export const tableRows = (t: (t: string) => string): TableRow[] => [
   {
-    title: 'Hospital Coverage',
+    title: t('Hospital Coverage'),
     policies: {
-      [Policy.BASIC]: { value: 'Contracted Hospitals Only', checked: true },
-      [Policy.STANDARD]: { value: 'All Contracted Hospitals', checked: true },
-      [Policy.PREMIUM]: { value: 'All Hospitals', checked: true },
+      [Policy.BASIC]: { value: t('Contracted Hospitals Only'), checked: true },
+      [Policy.STANDARD]: {
+        value: t('All Contracted Hospitals'),
+        checked: true,
+      },
+      [Policy.PREMIUM]: { value: t('All Hospitals'), checked: true },
     },
   },
   {
-    title: 'Providers',
+    title: t('Providers'),
     policies: {
-      [Policy.BASIC]: { value: '75% Coverage', checked: true },
-      [Policy.STANDARD]: { value: '75% Coverage', checked: true },
-      [Policy.PREMIUM]: { value: '85% Coverage', checked: true },
+      [Policy.BASIC]: { value: t('75% Coverage'), checked: true },
+      [Policy.STANDARD]: { value: t('75% Coverage'), checked: true },
+      [Policy.PREMIUM]: { value: t('85% Coverage'), checked: true },
     },
   },
   {
-    title: 'Dental Care',
+    title: t('Dental Care'),
     policies: {
       [Policy.BASIC]: { checked: false },
-      [Policy.STANDARD]: { value: '75% Coverage', checked: true },
-      [Policy.PREMIUM]: { value: '85% Coverage', checked: true },
+      [Policy.STANDARD]: { value: t('75% Coverage'), checked: true },
+      [Policy.PREMIUM]: { value: t('85% Coverage'), checked: true },
     },
   },
   {
-    title: 'District Nursing',
+    title: t('District Nursing'),
     policies: {
       [Policy.BASIC]: { checked: false },
-      [Policy.STANDARD]: { value: 'Covered', checked: true },
-      [Policy.PREMIUM]: { value: '85% Coverage', checked: true },
+      [Policy.STANDARD]: { value: t('Covered'), checked: true },
+      [Policy.PREMIUM]: { value: t('85% Coverage'), checked: true },
     },
   },
   {
-    title: 'Urgent Medical Care',
+    title: t('Urgent Medical Care'),
     policies: {
-      [Policy.BASIC]: { value: 'Contracted Providers Only', checked: true },
-      [Policy.STANDARD]: { value: 'All Contracted Providers', checked: true },
-      [Policy.PREMIUM]: { value: 'All Providers', checked: true },
+      [Policy.BASIC]: { value: t('Contracted Providers Only'), checked: true },
+      [Policy.STANDARD]: {
+        value: t('All Contracted Providers'),
+        checked: true,
+      },
+      [Policy.PREMIUM]: { value: t('All Providers'), checked: true },
     },
   },
   {
-    title: 'Guest Accounts',
+    title: t('Guest Accounts'),
     policies: {
       [Policy.BASIC]: { checked: false },
-      [Policy.STANDARD]: { value: 'Available', checked: true },
-      [Policy.PREMIUM]: { value: 'Available', checked: true },
+      [Policy.STANDARD]: { value: t('Available'), checked: true },
+      [Policy.PREMIUM]: { value: t('Available'), checked: true },
     },
   },
 ];
 
 export const PolicyTable = () => {
-  const header = tableHeader();
-
+  const { t } = useRegisterTranslation();
   const selected = useAppSelector(getPolicyState);
+
+  const header = tableHeader(t);
+  const rows = tableRows(t);
 
   return (
     <div className="flex w-full flex-col">
       {/* Table structure for larger screens */}
       <table className="hidden w-full md:table">
         <PolicyTableHeader header={header} selectedPolicy={selected.value} />
-        <PolicyTableBody rows={tableRows} selectedPolicy={selected.value} />
+        <PolicyTableBody rows={rows} selectedPolicy={selected.value} />
       </table>
 
       {/* Stacked block structure for smaller screens */}
@@ -115,7 +124,7 @@ export const PolicyTable = () => {
             key={policy}
             policy={policy as Policy}
             header={header}
-            rows={tableRows}
+            rows={rows}
             selectedPolicy={selected.value}
           />
         ))}

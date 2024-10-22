@@ -5,6 +5,7 @@ import { Step, StepList } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
 import { getTheme } from '../../../shared/store/app/theme';
 import { useAppSelector } from '../../../shared/store/hooks';
+import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
 import StepItem from './StepItem';
 import StepLine from './StepLine';
 
@@ -14,6 +15,7 @@ interface Props {
 
 const Stepper = ({ steps }: Props) => {
   const theme = useAppSelector(getTheme);
+  const { t } = useRegisterTranslation();
 
   const renderStepChain = () => {
     const chain: React.ReactElement[] = [];
@@ -51,7 +53,7 @@ const Stepper = ({ steps }: Props) => {
 
       <div className="my-4 flex w-full flex-shrink-0 flex-col items-start">
         <Theme.PrimaryText className="text-lg">
-          {steps.currentStep.title}
+          {t(steps.currentStep.title)}
         </Theme.PrimaryText>
 
         <div

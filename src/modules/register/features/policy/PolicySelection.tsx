@@ -4,6 +4,7 @@ import { Theme } from '../../../shared/layout/theme';
 import { PolicyTable } from './table/PolicyTable';
 import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
 import { getPolicyState, validatePolicy } from '../../store/user/user-slice';
+import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
 
 export const createPolicySelectionStep: () => Step = () => ({
   title: StepName.POLICY,
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export const PolicySelection = ({ nextStep, prevStep }: Props) => {
+  const { t } = useRegisterTranslation();
   const dispatch = useAppDispatch();
 
   const policy = useAppSelector(getPolicyState);
@@ -38,14 +40,14 @@ export const PolicySelection = ({ nextStep, prevStep }: Props) => {
 
       <div className="flex w-full flex-row justify-end gap-2">
         <Theme.DefaultButton onClick={prevStep} className="h-[2rem] w-[6rem]">
-          Back
+          {t('Back')}
         </Theme.DefaultButton>
 
         <Theme.PrimaryButton
           onClick={handleSubmit}
           className="h-[2rem] w-[6rem]"
         >
-          Next
+          {t('Next')}
         </Theme.PrimaryButton>
       </div>
     </div>

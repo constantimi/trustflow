@@ -8,6 +8,7 @@ import {
 import { Step, StepName } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
 import { getTheme } from '../../../shared/store/app/theme';
+import { useRegisterTranslation } from '../../hooks/useRegisterTranslation';
 import ArrowIcon from '../icons/ArrowIcon';
 import LoadingIcon from '../../../shared/components/icons/LoadingIcon';
 
@@ -22,6 +23,7 @@ interface Props {
 }
 
 export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
+  const { t } = useRegisterTranslation();
   const theme = useAppSelector(getTheme);
   const user = useAppSelector(getFormState);
   const policy = useAppSelector(getPolicyState);
@@ -31,10 +33,10 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
   return (
     <div className="flex w-full flex-col">
       <Theme.PrimaryText className="text-2xl font-semibold">
-        My details
+        {t('My details')}
       </Theme.PrimaryText>
       <Theme.PrimaryText className="text-lg">
-        Review your data and insurance policy preferences.
+        {t('Review your data and insurance policy preferences.')}
       </Theme.PrimaryText>
 
       <div
@@ -44,7 +46,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="grid w-full grid-cols-2">
         <div className="my-2">
-          <Theme.PrimaryText>Name</Theme.PrimaryText>
+          <Theme.PrimaryText>{t('Name')}</Theme.PrimaryText>
         </div>
         <div className="my-2">
           <Theme.PrimaryText disable>
@@ -55,7 +57,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="grid w-full grid-cols-2">
         <div className="my-2">
-          <Theme.PrimaryText>Email</Theme.PrimaryText>
+          <Theme.PrimaryText>{t('Email')}</Theme.PrimaryText>
         </div>
         <div className="my-2">
           <Theme.PrimaryText disable>{user.email.value}</Theme.PrimaryText>
@@ -64,7 +66,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="grid w-full grid-cols-2">
         <div className="my-2">
-          <Theme.PrimaryText>Date of Birth</Theme.PrimaryText>
+          <Theme.PrimaryText>{t('Date of Birth')}</Theme.PrimaryText>
         </div>
         <div className="my-2">
           <Theme.PrimaryText disable>{user.dob.value}</Theme.PrimaryText>
@@ -77,7 +79,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
           className="flex h-[2rem] w-fit flex-row gap-2"
         >
           <Theme.PrimaryText className="whitespace-normal text-sm">
-            Change contact details
+            {t('Change contact details')}
           </Theme.PrimaryText>
           <ArrowIcon fill={theme.text.primary} />
         </Theme.DefaultButton>
@@ -90,10 +92,10 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="grid w-full grid-cols-2">
         <div className="my-2">
-          <Theme.PrimaryText>Insurance Policy</Theme.PrimaryText>
+          <Theme.PrimaryText>{t('Insurance Policy')}</Theme.PrimaryText>
         </div>
         <div className="my-2">
-          <Theme.PrimaryText disable>{policy.value}</Theme.PrimaryText>
+          <Theme.PrimaryText disable>{t(policy.value)}</Theme.PrimaryText>
         </div>
       </div>
 
@@ -103,7 +105,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
           className="flex h-[2rem] w-fit flex-row gap-2"
         >
           <Theme.PrimaryText className="whitespace-normal text-sm">
-            Change contact details
+            {t('Change contact details')}
           </Theme.PrimaryText>
           <ArrowIcon fill={theme.text.primary} />
         </Theme.DefaultButton>
@@ -116,14 +118,14 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="flex w-full flex-row justify-end gap-2">
         <Theme.DefaultButton onClick={prevStep} className="h-[2rem] w-[6rem]">
-          Back
+          {t('Back')}
         </Theme.DefaultButton>
 
         <Theme.PrimaryButton onClick={nextStep} className="h-[2rem] w-[6rem]">
           {status.loading ? (
             <LoadingIcon fill={theme.text.secondary} />
           ) : (
-            'Submit'
+            t('Submit')
           )}
         </Theme.PrimaryButton>
       </div>

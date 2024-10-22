@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableHeader, TableRow } from './PolicyTable';
 import { useAppDispatch, useAppSelector } from '../../../../shared/store/hooks';
+import { useRegisterTranslation } from '../../../hooks/useRegisterTranslation';
 import { Theme } from '../../../../shared/layout/theme';
 import { getTheme } from '../../../../shared/store/app/theme';
 import { setPolicy } from '../../../store/user/user-slice';
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const PolicyMobileCard = ({ policy, header, rows, selectedPolicy }: Props) => {
+  const { t } = useRegisterTranslation();
   const theme = useAppSelector(getTheme);
   const dispatch = useAppDispatch();
 
@@ -59,7 +61,7 @@ const PolicyMobileCard = ({ policy, header, rows, selectedPolicy }: Props) => {
             className="h-[2rem] w-[6rem] font-normal"
             disable={selectedPolicy === policy}
           >
-            {selectedPolicy === policy ? 'Selected' : 'Choose'}
+            {selectedPolicy === policy ? t('Selected') : t('Choose')}
           </Theme.PrimaryButton>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
 } from './policy/PolicySelection';
 import { createSummaryScreenStep, Summary } from './summary/Summary';
 import { useAppDispatch, useAppSelector } from '../../shared/store/hooks';
+import { useRegisterTranslation } from '../hooks/useRegisterTranslation';
 import { postUserPolicy } from '../store/user/user-thunk';
 import { Theme } from '../../shared/layout/theme';
 import Stepper from '../components/stepper/Stepper';
@@ -23,6 +24,8 @@ import toast from '../../shared/components/toast/AppToast';
 const Register = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const { t } = useRegisterTranslation();
 
   const [stepper, setStepper] = useState<null | StepList>();
 
@@ -52,7 +55,7 @@ const Register = () => {
       dispatch(setInitialState());
 
       toast.success({
-        title: 'User added successfully',
+        title: t('User added successfully'),
       });
 
       setStepper(null);
@@ -61,10 +64,10 @@ const Register = () => {
       dispatch(clearStatus());
 
       toast.error({
-        title: status.msg,
+        title: t(status.msg),
       });
     }
-  }, [dispatch, navigate, status.code, status.loading, status.msg]);
+  }, [dispatch, navigate, status.code, status.loading, status.msg, t]);
 
   if (!stepper) {
     navigate('/');
@@ -107,10 +110,10 @@ const Register = () => {
       <Content className="flex flex-col items-center">
         <div className="mb-4 mt-[6rem] flex w-full flex-col items-center justify-center gap-1">
           <Theme.PrimaryText className="!text-3xl font-medium">
-            Create Insurance Policy
+            {t('Create Insurance Policy')}
           </Theme.PrimaryText>
           <Theme.SecondaryText className="text-lg">
-            Create the contract for your insurance policy
+            {t('Create the contract for your insurance policy')}
           </Theme.SecondaryText>
         </div>
 
