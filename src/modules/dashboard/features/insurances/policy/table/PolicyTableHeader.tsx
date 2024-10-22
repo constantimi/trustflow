@@ -36,11 +36,11 @@ const PolicyTableHeader = ({ header, selectedPolicy }: Props) => {
             }}
           >
             <div className="flex flex-col items-start px-4 py-2">
-              <Theme.PrimaryText className="text-left text-3xl font-semibold">
+              <Theme.PrimaryText className="text-left text-[1.5rem] font-semibold">
                 {header[policy as Policy].title}
               </Theme.PrimaryText>
 
-              <Theme.PrimaryText className="relative text-left text-2xl font-semibold">
+              <Theme.PrimaryText className="relative text-left text-[1.125rem] font-semibold">
                 {header[policy as Policy].price && (
                   <span className="mr-1">{header[policy as Policy].price}</span>
                 )}

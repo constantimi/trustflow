@@ -32,7 +32,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
   return (
     <div className="flex w-full flex-col">
-      <Theme.PrimaryText className="text-2xl font-semibold">
+      <Theme.PrimaryText className="text-[1.125rem] font-semibold">
         {t('My details')}
       </Theme.PrimaryText>
       <Theme.SecondaryText className="text-md">

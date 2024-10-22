@@ -20,7 +20,7 @@ const AppLogo: React.FC = () => {
       className="flex flex-row items-center gap-2"
     >
       <img src={src} alt={config.app.name} className="h-8 w-8" />
-      <Theme.PrimaryText className="flex-shrink-0 text-3xl font-normal">
+      <Theme.PrimaryText className="flex-shrink-0 text-[1.5rem] font-normal">
         {config.app.name}
       </Theme.PrimaryText>
     </button>

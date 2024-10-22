@@ -108,7 +108,7 @@ const AddInsurance = () => {
     <DashboardLayout>
       <div className="flex flex-col items-center">
         <div className="mb-4 mt-[6rem] flex w-full flex-col items-center justify-center gap-1">
-          <Theme.PrimaryText className="text-3xl font-medium">
+          <Theme.PrimaryText className="text-[1.5rem] font-medium">
             {t('Create Insurance Policy')}
           </Theme.PrimaryText>
           <Theme.SecondaryText className="text-lg">
