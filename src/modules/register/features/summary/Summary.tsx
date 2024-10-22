@@ -1,10 +1,15 @@
 import React from 'react';
 import { useAppSelector } from '../../../shared/store/hooks';
-import { getFormState, getPolicyState } from '../../store/user/user-slice';
+import {
+  getFormState,
+  getPolicyState,
+  getStatusState,
+} from '../../store/user/user-slice';
 import { Step, StepName } from '../../types/step';
 import { Theme } from '../../../shared/layout/theme';
 import { getTheme } from '../../../shared/store/app/theme';
 import ArrowIcon from '../icons/ArrowIcon';
+import LoadingIcon from '../../../shared/components/icons/LoadingIcon';
 
 export const createSummaryScreenStep: () => Step = () => ({
   title: StepName.SUMMARY,
@@ -20,6 +25,8 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
   const theme = useAppSelector(getTheme);
   const user = useAppSelector(getFormState);
   const policy = useAppSelector(getPolicyState);
+
+  const status = useAppSelector(getStatusState);
 
   return (
     <div className="flex w-full flex-col">
@@ -66,7 +73,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="flex w-full flex-row justify-end">
         <Theme.DefaultButton
-          onClick={() => jumpToStep(StepName.USER_FORM)}
+          onClick={() => jumpToStep(StepName.USER)}
           className="flex h-[2rem] w-fit flex-row gap-2"
         >
           <Theme.PrimaryText className="whitespace-normal text-sm">
@@ -92,7 +99,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
       <div className="flex w-full flex-row justify-end">
         <Theme.DefaultButton
-          onClick={() => jumpToStep(StepName.POLICY_SELECTION)}
+          onClick={() => jumpToStep(StepName.POLICY)}
           className="flex h-[2rem] w-fit flex-row gap-2"
         >
           <Theme.PrimaryText className="whitespace-normal text-sm">
@@ -113,7 +120,11 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
         </Theme.DefaultButton>
 
         <Theme.PrimaryButton onClick={nextStep} className="h-[2rem] w-[6rem]">
-          Apply
+          {status.loading ? (
+            <LoadingIcon fill={theme.text.secondary} />
+          ) : (
+            'Submit'
+          )}
         </Theme.PrimaryButton>
       </div>
     </div>

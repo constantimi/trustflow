@@ -8,7 +8,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import AuthAPI from '../constants/appApi';
+import AuthAPI from '../constants/authApi';
 
 export class AxiosClient {
   private axiosInstance: AxiosInstance;

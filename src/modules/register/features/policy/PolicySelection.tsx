@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../../shared/store/hooks';
 import { getPolicyState, validatePolicy } from '../../store/user/user-slice';
 
 export const createPolicySelectionStep: () => Step = () => ({
-  title: StepName.POLICY_SELECTION,
+  title: StepName.POLICY,
 });
 
 interface Props {

@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../shared/store';
 import isEmailValid from '../../../shared/helpers/validateEmail';
 import isDobValid from '../../../shared/helpers/validateDob';
+import { Status } from '../../../shared/types/common';
+import { postUserPolicy } from './user-thunk';
 
 interface Field {
   value: string;
@@ -16,6 +18,7 @@ interface UserState {
     dob: Field;
   };
   policy: Field;
+  status: Status;
 }
 
 const initialState: UserState = {
@@ -26,6 +29,11 @@ const initialState: UserState = {
     dob: { value: '', error: '' },
   },
   policy: { value: '', error: '' },
+  status: {
+    code: -1,
+    loading: false,
+    msg: '',
+  },
 };
 
 const userSlice = createSlice({
@@ -35,6 +43,10 @@ const userSlice = createSlice({
     setInitialState: (state) => {
       state.form = { ...initialState.form };
       state.policy = { ...initialState.policy };
+      state.status = { ...initialState.status };
+    },
+    clearStatus: (state) => {
+      state.status = { ...initialState.status };
     },
     setFirstName: (state, action: PayloadAction<string>) => {
       state.form.firstName.value = action.payload;
@@ -99,10 +111,55 @@ const userSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(postUserPolicy.fulfilled, (state) => {
+        state.status.loading = false;
+        state.status.code = 200;
+        state.status.msg = '';
+      })
+      .addCase(postUserPolicy.pending, (state) => {
+        state.status.loading = true;
+      })
+      .addCase(postUserPolicy.rejected, (state, action) => {
+        state.status.loading = false;
+        state.status.msg = 'internalServerError';
+        state.status.code = 500;
+
+        if (
+          !action.payload ||
+          action.payload.validation ||
+          !action.payload.error ||
+          !action.payload.error.axios
+        ) {
+          return;
+        }
+
+        const { axios } = action.payload.error;
+
+        if (!axios.response?.status) return;
+
+        state.status.code = axios.response.status;
+
+        if (state.status.code === 400) {
+          state.status.msg = 'badRequest';
+        }
+        if (state.status.code === 401) {
+          state.status.msg = 'unauthorized';
+        }
+        if (state.status.code === 404) {
+          state.status.msg = 'notFound';
+        }
+        if (state.status.code === 409) {
+          state.status.msg = 'notUnique';
+        }
+      });
+  },
 });
 
 export const {
   setInitialState,
+  clearStatus,
   setFirstName,
   validateFirstName,
   setLastName,
@@ -117,6 +174,17 @@ export const {
 
 export default userSlice.reducer;
 
-export const getFormState = (state: RootState) => state.data.user.form;
+export const getFormState = createSelector(
+  [(state: RootState) => state.data.user.form],
+  (form) => form
+);
 
-export const getPolicyState = (state: RootState) => state.data.user.policy;
+export const getPolicyState = createSelector(
+  [(state: RootState) => state.data.user.policy],
+  (policy) => policy
+);
+
+export const getStatusState = createSelector(
+  [(state: RootState) => state.data.user.status],
+  (status) => status
+);

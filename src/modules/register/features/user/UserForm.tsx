@@ -22,7 +22,7 @@ import isEmailValid from '../../../shared/helpers/validateEmail';
 import { Theme } from '../../../shared/layout/theme';
 
 export const createUserInformationStep: () => Step = () => ({
-  title: StepName.USER_FORM,
+  title: StepName.USER,
 });
 
 interface Props {

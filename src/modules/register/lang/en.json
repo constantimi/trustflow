@@ -1,0 +1,7 @@
+{
+  "internalServerError": "We are sorry, but something went wrong. Our team has been notified, and we are working to fix the issue. Please try again later.",
+  "badRequest": "Oops! The request you made was invalid. Please check your input and try again.",
+  "unauthorized": "Sorry, you are not authorized to access this resource. Please make sure you have the necessary permissions.",
+  "notFound": "The resource you are looking for could not be found. Please verify the URL or try again later.",
+  "notUnique": "These emails are already in use."
+}

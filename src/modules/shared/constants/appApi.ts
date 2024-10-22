@@ -8,20 +8,16 @@ const endpoints = () => {
   return {
     base: baseUrl,
 
-    token: `${baseUrl}/users/token/54bb2165-71e1-41a6-af3e-7da4a0e1e2c1`,
-    refresh_token: `${baseUrl}/users/token/refresh/54bb2165-71e1-41a6-af3e-7da4a0e1e2c1`,
-
-    register: `${baseUrl}/users/register`,
-    insurances: `${baseUrl}/insurances`,
-    workspaceInsurances: `${baseUrl}/${workspace}/insurances`,
-
     users: `${baseUrl}/users`,
+    userPolicy: `${baseUrl}/users/policy`,
+
+    policy: `${baseUrl}/policy`,
     workspaceUsers: `${baseUrl}/${workspace}/users`,
   };
 };
 
-const AuthAPI = {
+const AppAPI = {
   endpoints,
 };
 
-export default AuthAPI;
+export default AppAPI;
