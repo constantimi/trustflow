@@ -1,0 +1,7 @@
+{
+  "internalServerError": "Het spijt ons, maar er is iets misgegaan. Ons team is op de hoogte gebracht en we werken eraan om het probleem op te lossen. Probeer het later opnieuw.",
+  "badRequest": "Oeps! De door u gemaakte aanvraag is ongeldig. Controleer uw invoer en probeer het opnieuw.",
+  "unauthorized": "Sorry, u bent niet gemachtigd om toegang te krijgen tot deze bron. Zorg ervoor dat u de vereiste machtigingen heeft.",
+  "notFound": "De bron die u zoekt, kon niet worden gevonden. Controleer de URL of probeer het later opnieuw.",
+  "notUnique": "Deze e-mailadressen zijn al in gebruik."
+}

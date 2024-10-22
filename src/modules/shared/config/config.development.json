@@ -1,0 +1,40 @@
+{
+  "API_URL": "https://development-app.com",
+  "appIcon": "https://images.squarespace-cdn.com/content/v1/655486a453fc7b7a3b028b00/d4b6493d-53c4-4f54-8f2c-b8ad9537f198/favicon.ico?format=100w",
+  "appName": "TrustFlow",
+  "settings": {
+    "defaultLang": "en",
+    "defaultFontSize": "M",
+    "defaultTheme": "Light"
+  },
+  "dev": true,
+  "themes": {
+    "Light": {
+      "background": {
+        "main": "#FFFFFF",
+        "topbar": "#F6F6F6",
+        "activeTab": "#f8fafc",
+        "sidebar": "#F6F6F6"
+      },
+      "text": {
+        "primary": "#263779",
+        "secondary": "#B4BAD3",
+        "disabled": "#9497A7",
+        "button": "#FFFFFF"
+      },
+      "button": {
+        "color": "#263779",
+        "hover": "#0C2761",
+        "disabled": "#0C2761"
+      },
+      "input": {
+        "primary": "#F6F6F6",
+        "default": "#FFFFFF"
+      },
+      "border": {
+        "primary": "#E1E7F2",
+        "secondary": "#D4D7E4"
+      }
+    }
+  }
+}
