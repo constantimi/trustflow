@@ -56,7 +56,7 @@ const PrimaryButton = ({
         style={{
           color: theme.text.button,
         }}
-        className="flex flex-shrink-0 items-center"
+        className="flex flex-shrink-0 flex-row items-center gap-2"
       >
         {children}
       </div>

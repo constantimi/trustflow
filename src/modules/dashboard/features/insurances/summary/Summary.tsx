@@ -35,7 +35,7 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
       <Theme.PrimaryText className="text-2xl font-semibold">
         {t('My details')}
       </Theme.PrimaryText>
-      <Theme.SecondaryText className="text-lg">
+      <Theme.SecondaryText className="text-md">
         {t('Review your data and insurance policy preferences.')}
       </Theme.SecondaryText>
 

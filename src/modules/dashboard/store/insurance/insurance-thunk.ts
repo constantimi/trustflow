@@ -30,7 +30,7 @@ export const postUserPolicy = createAsyncThunk<
 
   try {
     const response: AxiosResponse = await axiosClient.post(
-      AppAPI.endpoints().userPolicy,
+      AppAPI.endpoints().addInsurance,
       payload
     );
 

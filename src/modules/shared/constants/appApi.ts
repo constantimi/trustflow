@@ -3,15 +3,17 @@ import { SessionStore } from '../utils/session';
 
 const endpoints = () => {
   const workspace = SessionStore.getActiveWorkspace();
-  const baseUrl = `${config.API_URL}/api/app`;
+  const baseUrl = `${config.API_URL}/api`;
 
   return {
     base: baseUrl,
 
     users: `${baseUrl}/users`,
-    userPolicy: `${baseUrl}/users/policy`,
 
-    policy: `${baseUrl}/policy`,
+    insurances: `${baseUrl}/insurances`,
+    addInsurance: `${baseUrl}/insurance/add`,
+
+    workspaces: `${baseUrl}/workspaces`,
     workspaceUsers: `${baseUrl}/${workspace}/users`,
   };
 };

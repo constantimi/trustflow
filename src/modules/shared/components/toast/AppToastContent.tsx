@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 import { ToastContentProps, TypeOptions } from 'react-toastify';
 import { useAppSelector } from '../../store/hooks';
 import { getTheme } from '../../store/app/theme';
@@ -16,7 +15,7 @@ type ToastProps = {
   toast?: ToastContentProps;
 };
 
-export const handleToastIcon = (type: TypeOptions) => {
+export const icon = (type: TypeOptions) => {
   switch (type) {
     case 'success':
       return <ToastSuccessIcon fill={supportColors.green} />;
@@ -33,7 +32,6 @@ export const handleToastIcon = (type: TypeOptions) => {
 
 const AppToastContent = ({ title, subtitle, ...toast }: ToastProps) => {
   const theme = useAppSelector(getTheme);
-  const isItemCentered = !subtitle ? 'items-center' : '';
   const toastType = (toast as ToastContentProps).toastProps?.type;
 
   let toastStyle = {
@@ -75,23 +73,20 @@ const AppToastContent = ({ title, subtitle, ...toast }: ToastProps) => {
 
   return (
     <div
-      className="flex h-full min-h-[63px] items-center rounded-md border-[0.5px] border-l-[9px] p-2 pr-4"
+      className="flex h-full min-h-[63px] items-center rounded-md border-l-[9px] p-2 pr-6"
       style={{
         ...toastStyle,
         backgroundColor: theme.background.topbar,
       }}
     >
-      <div className={cn('flex gap-3', isItemCentered)}>
-        <div className="w-4">{handleToastIcon(toastType as TypeOptions)}</div>
-        <div>
-          <Theme.PrimaryText className="text-base font-medium">
+      <div className="item-center flex flex-row gap-3">
+        <div className="h-4 w-4 flex-shrink-0">
+          {icon(toastType as TypeOptions)}
+        </div>
+        <div className="flex flex-wrap">
+          <Theme.PrimaryText className="whitespace-normal text-base font-medium">
             {title}
           </Theme.PrimaryText>
-          {subtitle && (
-            <Theme.PrimaryText className="pt-1 text-xs font-normal">
-              {subtitle}
-            </Theme.PrimaryText>
-          )}
         </div>
       </div>
     </div>

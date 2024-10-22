@@ -17,7 +17,7 @@ export const userPolicyRequestSchema = z.object({
 export type UserPolicyRequest = z.infer<typeof userPolicyRequestSchema>;
 
 export const userPolicySchema = z.object({
-  userId: z.string().uuid(),
+  id: z.string().uuid(),
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),
