@@ -8,11 +8,7 @@ import {
 } from '../../store/app/theme';
 import LightModeIcon from '../icons/LightModeIcon';
 import DarkModeIcon from '../icons/DarkModeIcon';
-
-enum Mode {
-  DARK = 'Dark',
-  LIGHT = 'Light',
-}
+import { Mode } from '../../types/theme';
 
 const ThemeToggle = () => {
   const dispatch = useAppDispatch();
@@ -46,9 +42,9 @@ const ThemeToggle = () => {
           }}
         >
           {active === Mode.DARK ? (
-            <DarkModeIcon fill={theme.text.disabled} />
+            <DarkModeIcon fill={theme.text.primary} />
           ) : (
-            <LightModeIcon fill={theme.text.disabled} />
+            <LightModeIcon fill={theme.text.primary} />
           )}
         </div>
       </button>

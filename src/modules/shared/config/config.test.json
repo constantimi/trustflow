@@ -1,14 +1,19 @@
 {
   "API_URL": "https://test-app.com",
-  "appIcon": "/icons/app-icon.svg",
-  "appName": "Vite",
+  "app": {
+    "icon": {
+      "light": "/icons/app-icon.svg",
+      "dark": "/icons/app-icon.svg"
+    },
+    "name": "Vite"
+  },
   "settings": {
     "defaultLang": "en",
     "defaultFontSize": "M",
-    "defaultTheme": "Light"
+    "defaultTheme": "light"
   },
   "themes": {
-    "Light": {
+    "light": {
       "background": {
         "main": "#FFFFFF",
         "topbar": "#F6F6F6",

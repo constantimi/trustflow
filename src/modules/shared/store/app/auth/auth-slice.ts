@@ -1,6 +1,6 @@
 import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 import { refreshAccessToken } from './auth-thunk';
-import { Status } from '../../../types/common';
+import { Status } from '../../../types/status';
 import { RootState } from '../..';
 
 export interface AuthState {

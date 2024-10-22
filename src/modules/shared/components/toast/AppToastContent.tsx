@@ -75,7 +75,7 @@ const AppToastContent = ({ title, subtitle, ...toast }: ToastProps) => {
 
   return (
     <div
-      className="flex h-full min-h-[63px] items-center rounded-md border-l-[9px] p-2"
+      className="flex h-full min-h-[63px] items-center rounded-md border-[0.5px] border-l-[9px] p-2 pr-4"
       style={{
         ...toastStyle,
         backgroundColor: theme.background.topbar,

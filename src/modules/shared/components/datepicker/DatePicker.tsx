@@ -56,19 +56,36 @@ const CustomInput = React.forwardRef<HTMLButtonElement, CustomInputProps>(
               background-color: ${theme.background.main};
               outline: none;
             }
+
             .react-datepicker__year-select {
               padding: 0.8rem;
             }
+
             .react-datepicker__triangle::after {
               border-color: ${theme.background.main} transparent transparent transparent !important;
             }
+
             .react-datepicker__day--today {
-              background-color: ${theme.button.color};
-              color: ${theme.text.secondary};
+              background-color: ${theme.text.disabled};
+              color: ${theme.background.main};
               font-weight: normal;
             }
+
             .react-datepicker__day:hover {
-              color: ${theme.text.button};
+              color: ${theme.text.primary};
+            }
+
+            .react-datepicker__day--selected {
+              background-color: ${theme.button.color};
+              color: ${theme.background.main};
+              font-weight: normal;
+              border: none;
+            }
+              
+            .react-datepicker__day--selected:hover {
+              color: ${theme.background.main};
+              font-weight: normal;
+              border: none;
             }
             `}
         </style>

@@ -32,12 +32,12 @@ export const Summary = ({ prevStep, nextStep, jumpToStep }: Props) => {
 
   return (
     <div className="flex w-full flex-col">
-      <Theme.PrimaryText className="text-[1.125rem] font-semibold">
+      <Theme.PrimaryText className="text-2xl font-semibold">
         {t('My details')}
       </Theme.PrimaryText>
-      <Theme.PrimaryText className="text-lg">
+      <Theme.SecondaryText className="text-lg">
         {t('Review your data and insurance policy preferences.')}
-      </Theme.PrimaryText>
+      </Theme.SecondaryText>
 
       <div
         className="mb-auto mt-2 flex h-[1px] w-full"

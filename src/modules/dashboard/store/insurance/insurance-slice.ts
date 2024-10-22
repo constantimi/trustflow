@@ -1,6 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../shared/store';
-import { Status } from '../../../shared/types/common';
+import { Status } from '../../../shared/types/status';
 import { postUserPolicy } from './insurance-thunk';
 import isEmailValid from '../../../shared/helpers/validateEmail';
 import isDobValid from '../../../shared/helpers/validateDob';
