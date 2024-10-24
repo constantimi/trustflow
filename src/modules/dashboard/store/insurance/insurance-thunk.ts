@@ -16,7 +16,7 @@ export const postUserPolicy = createAsyncThunk<
   {
     rejectValue: ThunkError;
   }
->('user/postUserPolicy', async (_, thunkAPI) => {
+>('insurance/postUserPolicy', async (_, thunkAPI) => {
   const { user: form, policy } = (thunkAPI.getState as AppGetState)().data
     .insurance;
 

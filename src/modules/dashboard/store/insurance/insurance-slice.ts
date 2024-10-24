@@ -36,7 +36,7 @@ const initialState: InsuranceState = {
   },
 };
 
-const userSlice = createSlice({
+const insuranceSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -174,9 +174,9 @@ export const {
   setPolicy,
   validatePolicy,
   clearPolicyError,
-} = userSlice.actions;
+} = insuranceSlice.actions;
 
-export default userSlice.reducer;
+export default insuranceSlice.reducer;
 
 export const getUserState = createSelector(
   [(state: RootState) => state.data.insurance.user],

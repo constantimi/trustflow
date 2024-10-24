@@ -1,16 +1,29 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "composite": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types",
       "src/@types"
+    ],
+    "types": [
+      "jest",
+      "node"
     ]
   },
   "include": [
     "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist"
   ]
 }

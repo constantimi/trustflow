@@ -3,7 +3,7 @@ export enum Mode {
   LIGHT = 'light',
 }
 
-export type Theme = {
+export interface Theme {
   background: {
     main: string;
     sidebar: string;
@@ -29,7 +29,7 @@ export type Theme = {
     primary: string;
     secondary: string;
   };
-};
+}
 
 export type SupportColors = {
   green: string;

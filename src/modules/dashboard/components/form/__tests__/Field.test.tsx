@@ -32,7 +32,7 @@ describe('Field component', () => {
         <Field
           placeholder={mockPlaceholder}
           onChange={handleOnChangeMock}
-          errorMessage={mockErrorMessage}
+          error={mockErrorMessage}
         />
       </Provider>
     );

@@ -17,15 +17,14 @@ export const axiosMock = {
 
 export const jwtdecodeMock = jest.fn();
 export const setJwtPayload = (usr: {
-  sub: string;
+  ur: string;
   role: string;
   ws: string;
-  sr?: string;
 }) => jwtdecodeMock.mockImplementation(() => usr);
 
 beforeEach(() => {
   jwtdecodeMock.mockImplementation(() => ({
-    sub: 'random',
+    ur: 'random',
     role: 'USER',
     ws: 'test',
   }));
